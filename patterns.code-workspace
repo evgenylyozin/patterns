@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "./javascript"
+    },
+    {
+      "path": "./typescript"
+    },
+    {
+      "path": "./go"
+    }
+  ],
+  "settings": {}
+}
