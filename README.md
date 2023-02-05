@@ -1,5 +1,7 @@
 # OOP and FP patterns for **_JS_**, **_TS_** and **_Go_**
 
+A collection of relevant patterns for Javascript, Typescript and Go
+
 ## The **javascript** folder
 
 Contains OOP and FP patterns for JavaScript (oop-patterns.js and fp-patterns.js respectively).
