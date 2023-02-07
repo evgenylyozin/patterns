@@ -5,9 +5,9 @@
 // these classic patterns were excluded:
 // 1. Constructor
 // reason of exclusion: since ES6 just use class syntax
-//
+// 2. Abstract factory
+// reason of exclusion: lack of interfaces and type functionality in JS
 // --todo--
-// - Abstract factory
 // - Prototype
 // - Singleton
 // - Builder
