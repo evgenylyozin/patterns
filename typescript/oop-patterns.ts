@@ -5,7 +5,13 @@
 // these classic patterns were excluded:
 // 1. Constructor
 // reason of exclusion: since ES6 just use class syntax
-
+//
+// --todo--
+// - Abstract factory
+// - Prototype
+// - Singleton
+// - Builder
+//
 //------------------------------------------------------------------------------
 // FACTORY
 // Aim: to hide objects creation details
@@ -71,4 +77,37 @@ class CatFactory {
 // } catch (e) {
 //   console.log(e.message);
 // }
+//------------------------------------------------------------------------------
+//
+// STRUCTURAL DESIGN PATTERNS
+// To organize relationships between objects
+
+// --note--
+//
+// --todo--
+// - Adapter
+// - Bridge
+// - Composite
+// - Decorator
+// - Facade
+// - Flyweight
+// - Proxy
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//
+// BEHAVIORAL DESIGN PATTERNS
+// To handle communication between heterogeneous objects
+
+// --note--
+//
+// --todo--
+// - Chain of Responsibility
+// - Command
+// - Iterator
+// - Mediator
+// - Memento
+// - Observer
+// - State
+// - Strategy
 //------------------------------------------------------------------------------

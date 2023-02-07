@@ -4,7 +4,13 @@ import "fmt"
 
 // CREATIONAL DESIGN PATTERNS
 // Patterns for handling objects creation
-
+//
+// --todo--
+// - Abstract factory
+// - Prototype
+// - Singleton
+// - Builder
+//
 // ------------------------------------------------------------------------------
 // CONSTRUCTOR
 // Aim: to create an object with the specified settings
@@ -69,4 +75,37 @@ func catsFactory(t string) (meower, error) {
 // 	} else {
 // 		fmt.Println(error.Error())
 // 	}
+//------------------------------------------------------------------------------
+//
+// STRUCTURAL DESIGN PATTERNS
+// To organize relationships between objects
+
+// --note--
+//
+// --todo--
+// - Adapter
+// - Bridge
+// - Composite
+// - Decorator
+// - Facade
+// - Flyweight
+// - Proxy
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//
+// BEHAVIORAL DESIGN PATTERNS
+// To handle communication between heterogeneous objects
+
+// --note--
+//
+// --todo--
+// - Chain of Responsibility
+// - Command
+// - Iterator
+// - Mediator
+// - Memento
+// - Observer
+// - State
+// - Strategy
 //------------------------------------------------------------------------------
