@@ -7,10 +7,6 @@ import (
 
 // CREATIONAL DESIGN PATTERNS
 // Patterns for handling objects creation
-//
-// --todo--
-// - Builder
-//
 // ------------------------------------------------------------------------------
 // CONSTRUCTOR
 // Aim: to create an object with the specified settings
