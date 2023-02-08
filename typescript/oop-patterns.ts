@@ -80,11 +80,15 @@ class CatFactory {
 // ABSTRACT FACTORY
 // Aim: to produce compatible but different objects
 
+// интерфейс абстрактной фабрики делает совместимыми конкретные фабрики и стандартизирует
+// типы продуктов, которые они выпускают
 interface AbstractFactory {
   createProductA: () => AbstractProductA;
   createProductB: () => AbstractProductB;
 }
 
+// Абстрактный интерфейс для каждого выпускаемого типа продуктов стандартизирует
+// признаки, присущие конкретному типу продукта, что делает их взаимозаменяемыми
 interface AbstractProductA {
   mondatoryFeatureOfA: () => void;
 }
@@ -93,6 +97,7 @@ interface AbstractProductB {
   mondatoryFeatureOfB: () => void;
 }
 
+// Конкретный продукт следует интерфейсу своего типа, но может иметь и свои особенные черты
 class ConcreteProductAType1 implements AbstractProductA {
   mondatoryFeatureOfA() {
     console.log('All A products have this feature');
@@ -129,6 +134,10 @@ class ConcreteProductBType2 implements AbstractProductB {
   }
 }
 
+// Конкретная фабрика, следуя интерфейсу абстрактной фабрики, выпускает все необходимые
+// типы конкретных продуктов, при этом каждая фабрика производит ряд этих продуктов со
+// своими особенностями (например, одна фабрика производит набор кнопок черного цвета, а другая
+// тот же набор белого цвета)
 class ConcreteFactory1 implements AbstractFactory {
   createProductA() {
     return new ConcreteProductAType1();
