@@ -351,8 +351,6 @@ class Director {
 // --note--
 //
 // --todo--
-// - Composite
-// - Decorator
 // - Facade
 // - Flyweight
 // - Proxy
