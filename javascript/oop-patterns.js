@@ -234,9 +234,6 @@ class Director {
 // в результирующем коде, без применения интерфейсов и хорошей типизации есть
 // большая вероятность наделать ошибок в процессе поддержки, расширения и
 // обновления кода. Для реализации лучше использовать TS (см пример на Typescript)
-//
-// --сделать--
-// - Proxy
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 // ADAPTER (АДАПТЕР)
@@ -577,25 +574,70 @@ class FlyweightFactory {
   }
 }
 
-const factory = new FlyweightFactory([
-  ['Chevrolet', 'Camaro2018', 'pink'],
-  ['Mercedes Benz', 'C300', 'black'],
-  ['Mercedes Benz', 'C500', 'red'],
-  ['BMW', 'M5', 'red'],
-  ['BMW', 'X6', 'white'],
-]);
-factory.listFlyweights();
+// const factory = new FlyweightFactory([
+//   ['Chevrolet', 'Camaro2018', 'pink'],
+//   ['Mercedes Benz', 'C300', 'black'],
+//   ['Mercedes Benz', 'C500', 'red'],
+//   ['BMW', 'M5', 'red'],
+//   ['BMW', 'X6', 'white'],
+// ]);
+// factory.listFlyweights();
 
-function addCarToPoliceDatabase(ff, plates, owner, brand, model, color) {
-  console.log('\nClient: Adding a car to database.');
-  const flyweight = ff.getFlyweight([brand, model, color]);
-  flyweight.operation([plates, owner]);
+// function addCarToPoliceDatabase(ff, plates, owner, brand, model, color) {
+//   console.log('\nClient: Adding a car to database.');
+//   const flyweight = ff.getFlyweight([brand, model, color]);
+//   flyweight.operation([plates, owner]);
+// }
+
+// addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'M5', 'red');
+// addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'X1', 'red');
+
+// factory.listFlyweights();
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// PROXY (ПРОКСИ)
+// ЦЕЛЬ: контролировать входящие и/или исходящие из проксируемого объекта
+// данные
+// ВАРИАНТЫ ИСПОЛЬЗОВАНИЯ: проверка прав доступа, кеширование, очистка ввода,
+// логирование, статистика и т.д.
+
+// Реальный проксируемый объект, содержит бизнес логику, но может быть слишком
+// тяжеловесным, чтобы использовать его для каждого запроса, либо может
+// быть слабо защищён и т.п.
+class RealSubject {
+  request() {
+    console.log('RealSubject: Handling request.');
+  }
 }
 
-addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'M5', 'red');
-addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'X1', 'red');
+// Прокси имеет тот же интерфейс, что и проксируемый объект
+class ProxyObj {
+  realSubject;
 
-factory.listFlyweights();
+  constructor(realSubject) {
+    this.realSubject = realSubject;
+  }
+
+  request() {
+    if (this.checkAccess()) {
+      this.realSubject.request();
+      this.logAccess();
+    }
+  }
+
+  checkAccess() {
+    console.log('Proxy: Checking access prior to firing a real request.');
+    return true;
+  }
+
+  logAccess() {
+    console.log('Proxy: Logging the time of request.');
+  }
+}
+
+// const proxy = new ProxyObj(new RealSubject());
+// proxy.request();
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
