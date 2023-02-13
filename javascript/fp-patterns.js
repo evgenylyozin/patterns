@@ -77,16 +77,58 @@ let lazilyDefinedFunc = () => {
 // Цель: инициализировать и вернуть готовый объект в единственном экземпляре или
 // провести другие операции инициализации с использованием данных из объекта
 
-const ImmediatelyInitializedObj = {
-  name: '',
-  age: 0,
-  init: function () {
-    console.log('Инициализация через метод init() началась');
-    this.name = 'Имя';
-    this.age = 25;
-    console.log('Инициализация закончена, возвращаю готовый объект');
-    return this;
-  },
-}.init();
+// const ImmediatelyInitializedObj = {
+//   name: '',
+//   age: 0,
+//   init: function () {
+//     console.log('Инициализация через метод init() началась');
+//     this.name = 'Имя';
+//     this.age = 25;
+//     console.log('Инициализация закончена, возвращаю готовый объект');
+//     return this;
+//   },
+// }.init();
 
 // console.log(ImmediatelyInitializedObj);
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Memoization (Кеширование/Запоминание)
+// Цель: запомнить результат операции и при повторе аргументов функции
+// вернуть его вместо повторения рассчетов
+
+// Вариант с полем внутри объекта функции
+const memoizedFib = (n) => {
+  if (n in memoizedFib.results) {
+    console.count('Возвращаю значение из кеша');
+    return memoizedFib.results[n];
+  } else {
+    console.count('Считаю новое значение');
+    const res = memoizedFib(n - 2) + memoizedFib(n - 1);
+    memoizedFib.results[n] = res;
+    return res;
+  }
+};
+
+memoizedFib.results = { 0: 0, 1: 1, 2: 1 };
+
+// console.log(memoizedFib(100));
+
+// Вариант с функцией высшего порядка
+const memoizedFibHOF = (n) => {
+  const results = { 0: 0, 1: 1, 2: 1 };
+  const fib = (n) => {
+    if (n in results) {
+      console.count('Возвращаю значение из кеша');
+      return results[n];
+    } else {
+      console.count('Считаю новое значение');
+      const res = fib(n - 2) + fib(n - 1);
+      results[n] = res;
+      return res;
+    }
+  };
+  return fib(n);
+};
+
+// console.log(memoizedFibHOF(100));
