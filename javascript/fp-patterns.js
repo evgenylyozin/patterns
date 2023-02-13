@@ -15,11 +15,11 @@ const someCBWhichDoesSomeAdditionalUsefulWork = (str) => {
   return str.toUpperCase();
 };
 
-console.log(
-  someFunctionWhichOnlyReturnsSomeString(
-    someCBWhichDoesSomeAdditionalUsefulWork
-  )
-);
+// console.log(
+//   someFunctionWhichOnlyReturnsSomeString(
+//     someCBWhichDoesSomeAdditionalUsefulWork
+//   )
+// );
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
@@ -38,6 +38,35 @@ let lazilyDefinedFunc = () => {
   };
 };
 
-lazilyDefinedFunc();
-lazilyDefinedFunc();
-lazilyDefinedFunc();
+// lazilyDefinedFunc();
+// lazilyDefinedFunc();
+// lazilyDefinedFunc();
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// IIFE (Immediately Invoked Function Expression) (НЕМЕДЛЕННО ВЫЗЫВАЕМАЯ ФУНКЦИЯ)
+// Цель: создать функцию, которая определяется (обычно) в анонимном блоке
+// и тут же вызывается.
+// Варианты применения: для создания модуля, для инициализации, для создания
+// синглтона и т.п.
+
+// Простая IIFE
+// (() => {
+//   console.log('Привет от простой IIFE');
+// })();
+
+// // IIFE с параметрами
+// ((str) => {
+//   console.log(`${str} от IIFE с параметрами`);
+// })('Привет');
+
+// // IIFE с возвращаемым значением
+// const singleton = ((str) => {
+//   console.log(`${str} от IIFE, создающей синглтон`);
+//   console.log('Создаю Синглтон');
+//   return {
+//     name: 'Синглтон',
+//   };
+// })('Привет');
+
+// console.log('Меня зовут', singleton.name);
