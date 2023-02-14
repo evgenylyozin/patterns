@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// ------------------------------------------------------------------------------
 // CONSTRUCTOR
 // Aim: to create an object with the specified settings
 type blackCat struct {
@@ -32,8 +33,7 @@ func newWhiteCat() *whiteCat {
 	return &whiteCat{color: "white"}
 }
 
-func main() {
-	whiteCat := newWhiteCat()
-	blackCat := newBlackCat()
-	fmt.Println(whiteCat.color, blackCat.color)
-}
+// whiteCat := newWhiteCat()
+// blackCat := newBlackCat()
+// fmt.Println(whiteCat.color, blackCat.color)
+//------------------------------------------------------------------------------
