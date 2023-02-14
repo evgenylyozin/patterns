@@ -8,6 +8,9 @@
     },
     {
       "path": "./go"
+    },
+    {
+      "path": "./docs"
     }
   ],
   "settings": {}
