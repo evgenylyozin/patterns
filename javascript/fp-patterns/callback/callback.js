@@ -13,6 +13,8 @@ const someCBWhichDoesSomeAdditionalUsefulWork = (str) => {
   return str.toUpperCase();
 };
 
+
+// client
 console.log(
   someFunctionWhichOnlyReturnsSomeString(
     someCBWhichDoesSomeAdditionalUsefulWork

@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "strings"
 
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
@@ -24,7 +21,5 @@ func someCBWhichDoesSomeAdditionalUsefulWork(str string) string {
 	return strings.ToUpper(str)
 }
 
-func main() {
-	fmt.Println(
-		someFunctionWhichOnlyReturnsSomeString(someCBWhichDoesSomeAdditionalUsefulWork))
-}
+// fmt.Println(
+// 	someFunctionWhichOnlyReturnsSomeString(someCBWhichDoesSomeAdditionalUsefulWork))
