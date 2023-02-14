@@ -2,25 +2,9 @@
 // ABSTRACT FACTORY
 // Aim: to produce compatible but different objects
 
-// интерфейс абстрактной фабрики делает совместимыми конкретные фабрики и стандартизирует
-// типы продуктов, которые они выпускают
-interface AbstractFactory {
-  createProductA: () => AbstractProductA;
-  createProductB: () => AbstractProductB;
-}
 
-// Абстрактный интерфейс для каждого выпускаемого типа продуктов стандартизирует
-// признаки, присущие конкретному типу продукта, что делает их взаимозаменяемыми
-interface AbstractProductA {
-  mondatoryFeatureOfA: () => void;
-}
-
-interface AbstractProductB {
-  mondatoryFeatureOfB: () => void;
-}
-
-// Конкретный продукт следует интерфейсу своего типа, но может иметь и свои особенные черты
-class ConcreteProductAType1 implements AbstractProductA {
+// Конкретный продукт
+class ConcreteProductAType1 {
   mondatoryFeatureOfA() {
     console.log('All A products have this feature');
   }
@@ -29,7 +13,7 @@ class ConcreteProductAType1 implements AbstractProductA {
   }
 }
 
-class ConcreteProductBType1 implements AbstractProductB {
+class ConcreteProductBType1 {
   mondatoryFeatureOfB() {
     console.log('All B products have this feature');
   }
@@ -38,7 +22,7 @@ class ConcreteProductBType1 implements AbstractProductB {
   }
 }
 
-class ConcreteProductAType2 implements AbstractProductA {
+class ConcreteProductAType2 {
   mondatoryFeatureOfA() {
     console.log('All A products have this feature');
   }
@@ -47,7 +31,7 @@ class ConcreteProductAType2 implements AbstractProductA {
   }
 }
 
-class ConcreteProductBType2 implements AbstractProductB {
+class ConcreteProductBType2 {
   mondatoryFeatureOfB() {
     console.log('All B products have this feature');
   }
@@ -56,11 +40,11 @@ class ConcreteProductBType2 implements AbstractProductB {
   }
 }
 
-// Конкретная фабрика, следуя интерфейсу абстрактной фабрики, выпускает все необходимые
+// Конкретная фабрика выпускает все необходимые
 // типы конкретных продуктов, при этом каждая фабрика производит ряд этих продуктов со
 // своими особенностями (например, одна фабрика производит набор кнопок черного цвета, а другая
 // тот же набор белого цвета)
-class ConcreteFactory1 implements AbstractFactory {
+class ConcreteFactory1 {
   createProductA() {
     return new ConcreteProductAType1();
   }
@@ -69,7 +53,7 @@ class ConcreteFactory1 implements AbstractFactory {
   }
 }
 
-class ConcreteFactory2 implements AbstractFactory {
+class ConcreteFactory2 {
   createProductA() {
     return new ConcreteProductAType2();
   }
@@ -78,19 +62,21 @@ class ConcreteFactory2 implements AbstractFactory {
   }
 }
 
-// const FactoryOfType1Products = new ConcreteFactory1();
-// const FactoryOfType2Products = new ConcreteFactory2();
 
-// const productAType1 = FactoryOfType1Products.createProductA();
-// const productAType2 = FactoryOfType2Products.createProductA();
-// const productBType1 = FactoryOfType1Products.createProductB();
-// const productBType2 = FactoryOfType2Products.createProductB();
+// КЛИЕНТ
+const FactoryOfType1Products = new ConcreteFactory1();
+const FactoryOfType2Products = new ConcreteFactory2();
 
-// productAType1.mondatoryFeatureOfA();
-// productAType1.specialFeatureOfAType1();
-// productAType2.mondatoryFeatureOfA();
-// productAType2.specialFeatureOfAType2();
-// productBType1.mondatoryFeatureOfB();
-// productBType1.specialFeatureOfBType1();
-// productBType2.mondatoryFeatureOfB();
-// productBType2.specialFeatureOfBType2();
+const productAType1 = FactoryOfType1Products.createProductA();
+const productAType2 = FactoryOfType2Products.createProductA();
+const productBType1 = FactoryOfType1Products.createProductB();
+const productBType2 = FactoryOfType2Products.createProductB();
+
+productAType1.mondatoryFeatureOfA();
+productAType1.specialFeatureOfAType1();
+productAType2.mondatoryFeatureOfA();
+productAType2.specialFeatureOfAType2();
+productBType1.mondatoryFeatureOfB();
+productBType1.specialFeatureOfBType1();
+productBType2.mondatoryFeatureOfB();
+productBType2.specialFeatureOfBType2();
