@@ -4,7 +4,7 @@ import "fmt"
 
 type singltn struct{ name string }
 
-// // IIFE с возвращаемым значением
+// IIFE с возвращаемым значением
 func main() {
   singleton := func(str string) singltn {
 	fmt.Println(str, "от IIFE, создающей синглтон")
