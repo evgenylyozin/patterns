@@ -19,9 +19,9 @@
 
 ## UML диаграмма
 
-![UML диаграмма адаптера](./uml-diagrams/adapter.png)
+![UML диаграмма адаптера](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/oop-patterns/uml-diagrams/adapter.png)
 
-[Что такое UML диаграммы](../diagram.md)
+[Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)
 
 ## Дополнительная информация
 
