@@ -22,7 +22,7 @@
 
 ## UML диаграмма
 
-![UML диаграмма моста](https://github.com/evgenylyozin/patterns/blob/3d5b5ccc60c1fc1b62c8fadc6d23441a446397f4/docs/oop-patterns/uml-diagrams/bridge.png)
+![UML диаграмма моста](https://github.com/evgenylyozin/patterns/blob/77dfb50085c11455de9bedbb7493b9ae19bcdd40/docs/oop-patterns/uml-diagrams/bridge.png)
 
 [Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)
 
