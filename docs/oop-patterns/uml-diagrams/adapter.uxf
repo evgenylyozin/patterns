@@ -1,0 +1,39 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>370</x><y>160</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Client/
+--
+--
+/+someMethod()/
+--
+Задачи:
+-- Описание методов, которые 
+ожидает видеть клиент</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>270</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>350</y><w>190</w><h>180</h></coordinates><panel_attributes>Adapter
+--
+-adaptee: Adaptee
+--
++someMethod()
+--
+Задачи:
+-- Реализация методов, 
+которые ожидает увидеть
+клиент
+-- Вызов логики 
+адаптируемого объекта при
+обращении клиента</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>370</y><w>190</w><h>90</h></coordinates><panel_attributes>Adaptee
+--
+--
++someReallyUsefulMethod()
+--
+Задачи:
+-- Реализация бизнес логики</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>370</y><w>150</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>130;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>140</x><y>160</y><w>190</w><h>160</h></coordinates><panel_attributes>Клиент
+--
+-adapter: Client
+--
++useAdapter(adapter)
+--
+Задачи:
+-- Клиент создаёт экземпляр
+адаптера и работает
+с ним, вызывая методы, 
+определённые интерфейсом
+Client</panel_attributes><additional_attributes></additional_attributes></element></diagram>

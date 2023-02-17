@@ -1,11 +1,6 @@
-//------------------------------------------------------------------------------
-// ABSTRACT FACTORY
-// Aim: to produce compatible but different objects
-
-
 // Конкретный продукт
 class ConcreteProductAType1 {
-  mondatoryFeatureOfA() {
+  mandatoryFeatureOfA() {
     console.log('All A products have this feature');
   }
   specialFeatureOfAType1() {
@@ -14,7 +9,7 @@ class ConcreteProductAType1 {
 }
 
 class ConcreteProductBType1 {
-  mondatoryFeatureOfB() {
+  mandatoryFeatureOfB() {
     console.log('All B products have this feature');
   }
   specialFeatureOfBType1() {
@@ -23,7 +18,7 @@ class ConcreteProductBType1 {
 }
 
 class ConcreteProductAType2 {
-  mondatoryFeatureOfA() {
+  mandatoryFeatureOfA() {
     console.log('All A products have this feature');
   }
   specialFeatureOfAType2() {
@@ -32,7 +27,7 @@ class ConcreteProductAType2 {
 }
 
 class ConcreteProductBType2 {
-  mondatoryFeatureOfB() {
+  mandatoryFeatureOfB() {
     console.log('All B products have this feature');
   }
   specialFeatureOfBType2() {
@@ -62,8 +57,9 @@ class ConcreteFactory2 {
   }
 }
 
-
-// КЛИЕНТ
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const FactoryOfType1Products = new ConcreteFactory1();
 const FactoryOfType2Products = new ConcreteFactory2();
 
@@ -72,11 +68,11 @@ const productAType2 = FactoryOfType2Products.createProductA();
 const productBType1 = FactoryOfType1Products.createProductB();
 const productBType2 = FactoryOfType2Products.createProductB();
 
-productAType1.mondatoryFeatureOfA();
+productAType1.mandatoryFeatureOfA();
 productAType1.specialFeatureOfAType1();
-productAType2.mondatoryFeatureOfA();
+productAType2.mandatoryFeatureOfA();
 productAType2.specialFeatureOfAType2();
-productBType1.mondatoryFeatureOfB();
+productBType1.mandatoryFeatureOfB();
 productBType1.specialFeatureOfBType1();
-productBType2.mondatoryFeatureOfB();
+productBType2.mandatoryFeatureOfB();
 productBType2.specialFeatureOfBType2();

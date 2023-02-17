@@ -10,7 +10,7 @@
 /AbstractProductA/
 --
 --
-/+mondatoryFeatureOfA()/
+/+mandatoryFeatureOfA()/
 --
 Задачи:
 -- Определяет обязательные
@@ -24,7 +24,7 @@ bg=blue</panel_attributes><additional_attributes></additional_attributes></eleme
 /AbstractProductB/
 --
 --
-/+mondatoryFeatureOfB()/
+/+mandatoryFeatureOfB()/
 --
 Задачи:
 -- Определяет обязательные
@@ -57,7 +57,7 @@ implements</panel_attributes><additional_attributes>10;80;10;10</additional_attr
 implements</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>150</x><y>180</y><w>210</w><h>130</h></coordinates><panel_attributes>ConcreteProductAType1
 --
 --
-+mondatoryFeatureOfA()
++mandatoryFeatureOfA()
 +specialFeatureOfAType1()
 --
 Задачи:
@@ -66,7 +66,7 @@ implements</panel_attributes><additional_attributes>10;10;10;80</additional_attr
 и обязательными признаками</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>150</x><y>590</y><w>210</w><h>130</h></coordinates><panel_attributes>ConcreteProductAType2
 --
 --
-+mondatoryFeatureOfA()
++mandatoryFeatureOfA()
 +specialFeatureOfAType2()
 --
 Задачи:
@@ -75,7 +75,7 @@ implements</panel_attributes><additional_attributes>10;10;10;80</additional_attr
 и обязательными признаками</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>830</x><y>180</y><w>210</w><h>130</h></coordinates><panel_attributes>ConcreteProductBType1
 --
 --
-+mondatoryFeatureOfB()
++mandatoryFeatureOfB()
 +specialFeatureOfBType1()
 --
 Задачи:
@@ -84,7 +84,7 @@ implements</panel_attributes><additional_attributes>10;10;10;80</additional_attr
 и обязательными признаками</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>830</x><y>590</y><w>210</w><h>130</h></coordinates><panel_attributes>ConcreteProductBType2
 --
 --
-+mondatoryFeatureOfB()
++mandatoryFeatureOfB()
 +specialFeatureOfBType2()
 --
 Задачи:
