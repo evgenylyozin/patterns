@@ -1,0 +1,94 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>220</x><y>250</y><w>210</w><h>200</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Builder
+--
+--
+/+reset()/
+/+step1()/
+/+step2()/
+/+stepX()/
+/+getResult():Result/
+--
+Задачи:
+-- Определить список шагов, 
+которые конкретный строитель
+можут вызывать для создания
+объекта </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>500</y><w>210</w><h>190</h></coordinates><panel_attributes>ConcreteBuilderB
+--
+-result: Result
+--
++reset()
++step1()
++step2()
++stepX()
++getResult():Result
+--
+Задачи:
+-- Реализация интерфейса 
+строителя и возврат готового
+продукта по запросу
+ </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>10</y><w>210</w><h>190</h></coordinates><panel_attributes>ConcreteBuilderA
+--
+-result: Result
+--
++reset()
++step1()
++step2()
++stepX()
++getResult():Result
+--
+Задачи:
+-- Реализация интерфейса 
+строителя и возврат готового
+продукта по запросу
+ </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>190</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>440</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>500</x><y>250</y><w>210</w><h>200</h></coordinates><panel_attributes>Director
+--
+-builder: Builder
+--
++setBuilder(builder: Builder)
++build():Result
+--
+
+Задачи:
+-- Хранение ссылки на 
+конкретного строителя и 
+вызов его методов для 
+построения нужного объекта
+-- Возврат готового объекта</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>270</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>100</w><h>50</h></coordinates><panel_attributes>
+Result</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>360</y><w>200</w><h>350</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;instantiate&gt;&gt;</panel_attributes><additional_attributes>180;330;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>0</y><w>200</w><h>340</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;instantiate&gt;&gt;</panel_attributes><additional_attributes>180;10;10;320</additional_attributes></element><element><id>UMLNote</id><coordinates><x>480</x><y>10</y><w>170</w><h>110</h></coordinates><panel_attributes>Конкретный 
+строитель создаёт
+пустой объект 
+результата и за счет
+последовательного вызова
+своих методов наполняет
+его данными.
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>40</y><w>80</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>60;20;10;20</additional_attributes></element><element><id>UMLNote</id><coordinates><x>540</x><y>500</y><w>170</w><h>210</h></coordinates><panel_attributes>Директор имеет 
+полезные для клиента 
+методы, которые 
+возвращают готовый 
+объект (результат). При 
+этом, такие методы по
+факту вызывают 
+соответствующие методы 
+конкретного строителя:
+-builder.step1();
+-builder.step2();
+...
+-return builder.getResult()
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>440</y><w>30</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>10</y><w>180</w><h>190</h></coordinates><panel_attributes>Клиент
+--
+-director: Director
+--
++useDirector(director)
+--
+Задачи:
+-- Клиент создаёт экземпляр
+директора и работает
+с ним, вызывая его методы
+-- При создании директора
+клиент создаёт экземпляр
+конкретного строителя и
+передаёт его директору</panel_attributes><additional_attributes></additional_attributes></element></diagram>
