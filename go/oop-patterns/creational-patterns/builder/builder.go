@@ -1,85 +1,72 @@
 package main
 
+import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// BUILDER (СТРОИТЕЛЬ)
-// ЦЕЛЬ: организовать систему для пошагового создания сложных настраиваемых
-// объектов или разгрузить сложную функцию-конструктор
-
-// Тип для объекта, который будут строить билдеры
+// Тип для объекта, который будут строить строители
 type house struct {
 	windowType string
 	doorType   string
 	floor      int
 }
 
-// Интерфейс, которого должен придерживаться каждый билдер
+// Интерфейс, которого должен придерживаться каждый строитель
 type iHouseBuilder interface {
 	setWindowType()
 	setDoorType()
 	setNumFloor()
-	getHouse() house
+	getHouse() *house
 }
 
-// Конкретный билдер
+// Конкретный строитель
 type normalBuilder struct {
-	house
+	house *house
 }
 
 func newNormalBuilder() *normalBuilder {
-	return &normalBuilder{}
+	return &normalBuilder{house: &house{}}
 }
 
 func (b *normalBuilder) setWindowType() {
-	b.windowType = "Wooden Window"
+	b.house.windowType = "Wooden Window"
 }
 
 func (b *normalBuilder) setDoorType() {
-	b.doorType = "Wooden Door"
+	b.house.doorType = "Wooden Door"
 }
 
 func (b *normalBuilder) setNumFloor() {
-	b.floor = 2
+	b.house.floor = 2
 }
 
-func (b *normalBuilder) getHouse() house {
-	return house{
-		doorType:   b.doorType,
-		windowType: b.windowType,
-		floor:      b.floor,
-	}
+func (b *normalBuilder) getHouse() *house {
+	return b.house
 }
 
 type iglooBuilder struct {
-	house
+	house *house
 }
 
 func newIglooBuilder() *iglooBuilder {
-	return &iglooBuilder{}
+	return &iglooBuilder{house: &house{}}
 }
 
 func (b *iglooBuilder) setWindowType() {
-	b.windowType = "Snow Window"
+	b.house.windowType = "Snow Window"
 }
 
 func (b *iglooBuilder) setDoorType() {
-	b.doorType = "Snow Door"
+	b.house.doorType = "Snow Door"
 }
 
 func (b *iglooBuilder) setNumFloor() {
-	b.floor = 1
+	b.house.floor = 1
 }
 
-func (b *iglooBuilder) getHouse() house {
-	return house{
-		doorType:   b.doorType,
-		windowType: b.windowType,
-		floor:      b.floor,
-	}
+func (b *iglooBuilder) getHouse() *house {
+	return b.house
 }
 
-// Хелпер для получения нужного типа билдера
+// Вспомогательная функция для получения нужного типа строителя
 func getBuilder(builderType string) iHouseBuilder {
 	if builderType == "normal" {
 		return newNormalBuilder()
@@ -91,7 +78,7 @@ func getBuilder(builderType string) iHouseBuilder {
 	return nil
 }
 
-// Тип для директора билдеров, хранит в себе конкретного билдера для постройки объекта
+// Тип для директора строителей, хранит в себе конкретного строителя для постройки объекта
 type director struct {
 	builder iHouseBuilder
 }
@@ -107,26 +94,32 @@ func (d *director) setBuilder(b iHouseBuilder) {
 }
 
 // Основной метод, нужный клиенту для того, чтобы получить созданный объект
-func (d *director) buildHouse() house {
+func (d *director) buildHouse() *house {
 	d.builder.setDoorType()
 	d.builder.setWindowType()
 	d.builder.setNumFloor()
 	return d.builder.getHouse()
 }
 
-// normalBuilder := getBuilder("normal")
-// iglooBuilder := getBuilder("igloo")
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ------------------------------- Клиентский код -------------------------------
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// director := newDirector(normalBuilder)
-// normalHouse := director.buildHouse()
+func main() {
+	normalBuilder := getBuilder("normal")
+	iglooBuilder := getBuilder("igloo")
 
-// fmt.Printf("Normal House Door Type: %s\n", normalHouse.doorType)
-// fmt.Printf("Normal House Window Type: %s\n", normalHouse.windowType)
-// fmt.Printf("Normal House Num Floor: %d\n", normalHouse.floor)
+	director := newDirector(normalBuilder)
+	normalHouse := director.buildHouse()
 
-// director.setBuilder(iglooBuilder)
-// iglooHouse := director.buildHouse()
+	fmt.Printf("Normal House Door Type: %s\n", normalHouse.doorType)
+	fmt.Printf("Normal House Window Type: %s\n", normalHouse.windowType)
+	fmt.Printf("Normal House Num Floor: %d\n", normalHouse.floor)
 
-// fmt.Printf("\nIgloo House Door Type: %s\n", iglooHouse.doorType)
-// fmt.Printf("Igloo House Window Type: %s\n", iglooHouse.windowType)
-// fmt.Printf("Igloo House Num Floor: %d\n", iglooHouse.floor)
+	director.setBuilder(iglooBuilder)
+	iglooHouse := director.buildHouse()
+
+	fmt.Printf("\nIgloo House Door Type: %s\n", iglooHouse.doorType)
+	fmt.Printf("Igloo House Window Type: %s\n", iglooHouse.windowType)
+	fmt.Printf("Igloo House Num Floor: %d\n", iglooHouse.floor)
+}
