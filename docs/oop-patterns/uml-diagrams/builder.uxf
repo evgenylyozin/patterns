@@ -11,7 +11,7 @@ Builder
 Задачи:
 -- Определить список шагов, 
 которые конкретный строитель
-можут вызывать для создания
+может вызывать для создания
 объекта </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>500</y><w>210</w><h>190</h></coordinates><panel_attributes>ConcreteBuilderB
 --
 -result: Result
