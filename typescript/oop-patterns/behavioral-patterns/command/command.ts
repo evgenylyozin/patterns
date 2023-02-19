@@ -1,10 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// COMMAND (КОМАНДА)
-// ЦЕЛЬ: превратить запросы на выполнение определённых действий в объекты,
-// которые можно будет использовать для вызова определёных методов (выполнения
-// команд), тем самым отделив логику GUI от бизнес логики
-
 // интерфейс для определения методов для выполнения команды
 interface Command {
   execute(): void;
@@ -99,9 +92,13 @@ class Invoker {
   }
 }
 
-// const invoker = new Invoker();
-// invoker.setOnStart(new SimpleCommand('Say Hi!'));
-// const receiver = new Receiver();
-// invoker.setOnFinish(new ComplexCommand(receiver, 'Send email', 'Save report'));
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// invoker.doSomethingImportant();
+const invoker = new Invoker();
+invoker.setOnStart(new SimpleCommand('Say Hi!'));
+const receiver = new Receiver();
+invoker.setOnFinish(new ComplexCommand(receiver, 'Send email', 'Save report'));
+
+invoker.doSomethingImportant();

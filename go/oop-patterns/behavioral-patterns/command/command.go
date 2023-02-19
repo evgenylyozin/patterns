@@ -2,13 +2,6 @@ package main
 
 import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// COMMAND (КОМАНДА)
-// ЦЕЛЬ: превратить запросы на выполнение определённых действий в объекты,
-// которые можно будет использовать для вызова определёных методов (выполнения
-// команд), тем самым отделив логику GUI от бизнес логики
-
 // интерфейс для определения методов для выполнения команды
 type command interface {
 	execute()
@@ -82,10 +75,16 @@ func (i *invoker) doSomethingImportant() {
 	}
 }
 
-// receiver := receiver{}
-// command1 := simpleCommand{}
-// command2 := complexCommand{receiver: receiver, a: "Send email", b: "Send report"}
-// invoker := invoker{}
-// invoker.setOnStart(&command1)
-// invoker.setOnFinish(&command2)
-// invoker.doSomethingImportant()
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+func main() {
+	receiver := receiver{}
+	command1 := simpleCommand{}
+	command2 := complexCommand{receiver: receiver, a: "Send email", b: "Send report"}
+	invoker := invoker{}
+	invoker.setOnStart(&command1)
+	invoker.setOnFinish(&command2)
+	invoker.doSomethingImportant()
+}
