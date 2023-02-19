@@ -1,9 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// CHAIN OF RESPONSIBILITY (ЦЕПОЧКА ОБЯЗАННОСТЕЙ)
-// ЦЕЛЬ: создать систему из нескольких обработчиков запроса, каждый из которых
-// может либо обработать запрос, либо передать его следующему
-
 // интерфейс для определения методов назначения следующего обработчика
 // и непосредственно обработки запроса
 interface Handler {
@@ -12,7 +6,7 @@ interface Handler {
   handle(request: string): string | null;
 }
 
-// базовый класс, который содержит логику назначения следующего хендлера и
+// базовый класс, который содержит логику назначения следующего обработчика и
 // базовую логику обработки
 abstract class AbstractHandler implements Handler {
   private nextHandler: Handler | undefined;
@@ -59,23 +53,27 @@ class DogHandler extends AbstractHandler {
   }
 }
 
-// const monkey = new MonkeyHandler();
-// const squirrel = new SquirrelHandler();
-// const dog = new DogHandler();
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// monkey.setNext(squirrel).setNext(dog);
+const monkey = new MonkeyHandler();
+const squirrel = new SquirrelHandler();
+const dog = new DogHandler();
 
-// const handler = monkey;
+monkey.setNext(squirrel).setNext(dog);
 
-// const foods = ['Nut', 'Banana', 'Cup of coffee'];
+const handler = monkey;
 
-// for (const food of foods) {
-//   console.log(`Client: Who wants a ${food}?`);
+const foods = ['Nut', 'Banana', 'Cup of coffee'];
 
-//   const result = handler.handle(food);
-//   if (result) {
-//     console.log(`  ${result}`);
-//   } else {
-//     console.log(`  ${food} was left untouched.`);
-//   }
-// }
+for (const food of foods) {
+  console.log(`Client: Who wants a ${food}?`);
+
+  const result = handler.handle(food);
+  if (result) {
+    console.log(`  ${result}`);
+  } else {
+    console.log(`  ${food} was left untouched.`);
+  }
+}

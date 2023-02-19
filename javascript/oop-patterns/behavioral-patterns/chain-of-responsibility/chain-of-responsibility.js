@@ -1,10 +1,4 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// CHAIN OF RESPONSIBILITY (ЦЕПОЧКА ОБЯЗАННОСТЕЙ)
-// ЦЕЛЬ: создать систему из нескольких обработчиков запроса, каждый из которых
-// может либо обработать запрос, либо передать его следующему
-
-// базовый класс, который содержит логику назначения следующего хендлера и
+// базовый класс, который содержит логику назначения следующего обработчика и
 // базовую логику обработки
 class AbstractHandler {
   nextHandler;
@@ -51,23 +45,25 @@ class DogHandler extends AbstractHandler {
   }
 }
 
-// const monkey = new MonkeyHandler();
-// const squirrel = new SquirrelHandler();
-// const dog = new DogHandler();
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const monkey = new MonkeyHandler();
+const squirrel = new SquirrelHandler();
+const dog = new DogHandler();
 
-// monkey.setNext(squirrel).setNext(dog);
+monkey.setNext(squirrel).setNext(dog);
 
-// const handler = monkey;
+const handler = monkey;
 
-// const foods = ['Nut', 'Banana', 'Cup of coffee'];
+const foods = ['Nut', 'Banana', 'Cup of coffee'];
 
-// for (const food of foods) {
-//   console.log(`Client: Who wants a ${food}?`);
-
-//   const result = handler.handle(food);
-//   if (result) {
-//     console.log(`  ${result}`);
-//   } else {
-//     console.log(`  ${food} was left untouched.`);
-//   }
-// }
+for (const food of foods) {
+  console.log(`Client: Who wants a ${food}?`);
+  const result = handler.handle(food);
+  if (result) {
+    console.log(`  ${result}`);
+  } else {
+    console.log(`  ${food} was left untouched.`);
+  }
+}

@@ -1,10 +1,6 @@
 package main
 
-
-//------------------------------------------------------------------------------
-// CHAIN OF RESPONSIBILITY (ЦЕПОЧКА ОБЯЗАННОСТЕЙ)
-// ЦЕЛЬ: создать систему из нескольких обработчиков запроса, каждый из которых
-// может либо обработать запрос, либо передать его следующему
+import "fmt"
 
 // интерфейс для определения методов назначения следующего обработчика
 // и непосредственно обработки запроса
@@ -14,7 +10,7 @@ type handler interface {
 	handle(request string) string
 }
 
-// базовый тип, который содержит логику назначения следующего хендлера и
+// базовый тип, который содержит логику назначения следующего обработчика и
 // базовую логику обработки
 type abstractHandler struct {
 	nextHandler handler
@@ -68,24 +64,29 @@ func (h *dogHandler) handle(request string) string {
 	return h.abstractHandler.handle(request)
 }
 
-// monkey := monkeyHandler{}
-// squirrel := squirrelHandler{}
-// dog := dogHandler{}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// monkey.setNext(&squirrel).setNext(&dog)
+func main() {
+	monkey := monkeyHandler{}
+	squirrel := squirrelHandler{}
+	dog := dogHandler{}
 
-// handler := monkey
+	monkey.setNext(&squirrel).setNext(&dog)
 
-// foods := []string{"Nut", "Banana", "Cup of coffee"}
+	handler := monkey
 
-// for _, food := range foods {
-// 	fmt.Printf("Client: Who wants a %v?\n", food)
+	foods := []string{"Nut", "Banana", "Cup of coffee"}
 
-// 	result := handler.handle(food)
-// 	if result != "" {
-// 		fmt.Println(result)
-// 	} else {
-// 		fmt.Printf("%v was left untouched.\n", food)
-// 	}
-// }
-//------------------------------------------------------------------------------
+	for _, food := range foods {
+		fmt.Printf("Client: Who wants a %v?\n", food)
+
+		result := handler.handle(food)
+		if result != "" {
+			fmt.Println(result)
+		} else {
+			fmt.Printf("%v was left untouched.\n", food)
+		}
+	}
+}
