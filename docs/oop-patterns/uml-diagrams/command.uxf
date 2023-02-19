@@ -1,0 +1,65 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>550</x><y>320</y><w>210</w><h>120</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Command
+--
+--
+/+execute()/
+--
+Задачи:
+--  Описывает общий для всех 
+конкретных команд интерфейс.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>430</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>490</y><w>210</w><h>160</h></coordinates><panel_attributes>CommandWithReceiver
+--
+- receiver
+- params
+--
++execute()
+--
+Задачи:
+-- Выполняет поставленную 
+задачу или вызывает методы 
+получателя для выполнения 
+этой задачи</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>170</y><w>210</w><h>100</h></coordinates><panel_attributes>SimpleCommand
+--
+--
++execute()
+--
+Задачи:
+-- Выполняет поставленную 
+задачу</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>260</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>490</y><w>210</w><h>120</h></coordinates><panel_attributes>Receiver
+--
+--
++operation(params)
+--
+Задачи:
+-- Выполняет поставленную 
+задачу, вызывается через
+конкретную команду</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>510</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;80;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>320</y><w>210</w><h>140</h></coordinates><panel_attributes>Invoker
+--
+-command: Command
+--
++setCommand(command)
++executeCommand()
+--
+Задачи:
+-- Хранит в себе ссылку на 
+конкретную команду и вызывает
+её при необходимости</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>340</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>0</y><w>210</w><h>270</h></coordinates><panel_attributes>Клиент
+--
+- receiver: Receiver
+- invoker: Invoker
+- command: Command
+--
++useInvoker(invoker)
+--
+Задачи:
+-- Клиент создаёт экземпляр
+получателя, если это необходимо
+-- Клиент создаёт экземпляр
+конкретной команды, передавая
+в неё получателя, если это
+необходимо
+-- Клиент создаёт отправителя и
+передаёт ему команду
+-- Клиент вызывает команду через
+отправителя</panel_attributes><additional_attributes></additional_attributes></element></diagram>
