@@ -1,0 +1,59 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>350</x><y>70</y><w>210</w><h>160</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Handler
+--
+--
+/+handle(request)/
+/+setHandler(h: Handler)/
+--
+Задачи:
+-- Определить основные 
+операции, которые должен
+реализовать каждый
+обработчик</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>280</y><w>210</w><h>180</h></coordinates><panel_attributes>BaseHandler
+--
+-nextHandler: Handler
+--
++handle(request)
++setHandler(h: Handler)
+--
+Задачи:
+-- Реализация базовой логики
+обработчиков (установка 
+следующего обработчика и 
+его вызов в случае 
+необходимости)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>220</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>280</y><w>210</w><h>180</h></coordinates><panel_attributes>HandlerB
+--
+-nextHandler: Handler
+--
++handle(request)
++setHandler(h: Handler)
+--
+Задачи:
+-- Реализация конкретной логики
+обработки
+-- Вызов следующего обработчика
+через метод handle базового
+обработчика</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>280</y><w>210</w><h>180</h></coordinates><panel_attributes>HandlerA
+--
+-nextHandler: Handler
+--
++handle(request)
++setHandler(h: Handler)
+--
+Задачи:
+-- Реализация конкретной логики
+обработки
+-- Вызов следующего обработчика
+через метод handle базового
+обработчика</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>350</y><w>120</w><h>40</h></coordinates><panel_attributes>extends
+lt=&lt;&lt;-</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>350</y><w>120</w><h>40</h></coordinates><panel_attributes>extends
+lt=&lt;&lt;-</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>70</y><w>210</w><h>150</h></coordinates><panel_attributes>Клиент
+
+Задачи:
+1. Клиент создаёт экземпляры
+конкретных обработчиков
+и связывает их в цепочку
+при помощи метода setHandler
+2. Клиент вызывает первый
+обработчик</panel_attributes><additional_attributes></additional_attributes></element></diagram>
