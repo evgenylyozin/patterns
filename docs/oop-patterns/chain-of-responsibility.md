@@ -26,8 +26,6 @@
 
 ## UML диаграмма
 
----
-
 ![UML диаграмма цепочки обязанностей](https://github.com/evgenylyozin/patterns/blob/c6f3da8e5fb97cc77b07ede0fecfa09194e1f0b3/docs/oop-patterns/uml-diagrams/chain-of-responsibility.png)
 
 [Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)

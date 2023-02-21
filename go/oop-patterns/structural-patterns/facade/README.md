@@ -22,8 +22,6 @@
 
 ## UML диаграмма
 
----
-
 ![UML диаграмма фасада](https://github.com/evgenylyozin/patterns/blob/df598417ebfc2e9d45289cbb126edf1d985dbe4e/docs/oop-patterns/uml-diagrams/facade.png)
 
 [Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)
