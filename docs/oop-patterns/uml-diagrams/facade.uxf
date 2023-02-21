@@ -1,0 +1,26 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>390</x><y>160</y><w>190</w><h>180</h></coordinates><panel_attributes>Facade
+--
+-systemObjects
+--
++operation()
+--
+Задачи:
+-- Содержит ссылки на 
+объекты системы
+-- Содержит полезные методы
+для использования клиентом
+-- Вызывает методы 
+объектов системы
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>210</y><w>100</w><h>30</h></coordinates><panel_attributes>Object2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>310</y><w>100</w><h>30</h></coordinates><panel_attributes>Object4</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>260</y><w>100</w><h>30</h></coordinates><panel_attributes>Object3</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>160</y><w>100</w><h>30</h></coordinates><panel_attributes>Object1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>170</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>130;10;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>180</y><w>150</w><h>70</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>130;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>180</y><w>150</w><h>120</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>130;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>180</y><w>150</w><h>170</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>130;150;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>370</x><y>400</y><w>240</w><h>180</h></coordinates><panel_attributes>Фасад имеет упрощенный интерфейс
+по сравнению с объектами системы,
+методы которых он вызывает. При 
+вызове методов фасада, 
+конструируются нужные объекты,
+ вызываются соответствующие методы 
+объектов для выполнения нужных 
+операций вызываются, всё это 
+происходит в правильной
+ последовательности и т.п. При этом,
+все эти сложности не видны клиенту. 
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>330</y><w>30</w><h>90</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>160</y><w>100</w><h>30</h></coordinates><panel_attributes>Client</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>150</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;instantiate&gt;&gt;</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element></diagram>
