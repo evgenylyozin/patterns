@@ -1,9 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Decorator (ДЕКОРАТОР)
-// ЦЕЛЬ: расширить функционал конкретного объекта, не меняя при этом логики
-// класса (схемы), из которого был создан объект
-
 // Интерфейс объекта, который оборачивается
 // ему должны так же следовать все обёртки, чтобы клиентский код
 // мог без труда использовать столько декораторов, сколько угодно
@@ -46,10 +40,14 @@ class ConcreteDecoratorB extends Decorator {
   }
 }
 
-// const decorated = new Decorated();
-// const decoratorA = new ConcreteDecoratorA(decorated);
-// const decoratorB = new ConcreteDecoratorB(decoratorA);
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// decorated.log('Привет!');
-// decoratorA.log('Привет!');
-// decoratorB.log('Привет!');
+const decorated = new Decorated();
+const decoratorA = new ConcreteDecoratorA(decorated);
+const decoratorB = new ConcreteDecoratorB(decoratorA);
+
+decorated.log('Привет!');
+decoratorA.log('Привет!');
+decoratorB.log('Привет!');

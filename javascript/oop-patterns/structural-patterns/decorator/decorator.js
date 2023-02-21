@@ -1,11 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Decorator (ДЕКОРАТОР)
-// ЦЕЛЬ: расширить функционал конкретного объекта, не меняя при этом логики
-// класса (схемы), из которого был создан объект
-// УТОЧНЕНИЕ: паттерн лучше применять в рамках TS в связи с необходимостью
-// для декораторов следовать интерфейсу декарируемого объекта
-
 // Конкретный класс со стандартной имплементацией операций
 class Decorated {
   log(data) {
@@ -39,10 +31,13 @@ class ConcreteDecoratorB extends Decorator {
   }
 }
 
-// const decorated = new Decorated();
-// const decoratorA = new ConcreteDecoratorA(decorated);
-// const decoratorB = new ConcreteDecoratorB(decoratorA);
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const decorated = new Decorated();
+const decoratorA = new ConcreteDecoratorA(decorated);
+const decoratorB = new ConcreteDecoratorB(decoratorA);
 
-// decorated.log('Привет!');
-// decoratorA.log('Привет!');
-// decoratorB.log('Привет!');
+decorated.log('Привет!');
+decoratorA.log('Привет!');
+decoratorB.log('Привет!');

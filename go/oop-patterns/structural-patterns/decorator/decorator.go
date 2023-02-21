@@ -2,12 +2,6 @@ package main
 
 import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Decorator (ДЕКОРАТОР)
-// ЦЕЛЬ: расширить функционал конкретного объекта, не меняя при этом логики
-// класса (схемы), из которого был создан объект
-
 // Интерфейс объекта, который оборачивается
 // ему должны так же следовать все обёртки, чтобы клиентский код
 // мог без труда использовать столько декораторов, сколько угодно
@@ -60,10 +54,15 @@ func newConcreteDecoratorB(d iDecorated) *concreteDecoratorB {
 	return &concreteDecoratorB{decorator{decorated: d}}
 }
 
-// decorated := &decorated{}
-// decoratorA := newConcreteDecoratorA(decorated)
-// decoratorB := newConcreteDecoratorB(decoratorA)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ------------------------------- Клиентский код -------------------------------
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+func main() {
+	decorated := &decorated{}
+	decoratorA := newConcreteDecoratorA(decorated)
+	decoratorB := newConcreteDecoratorB(decoratorA)
 
-// decorated.log("Привет!")
-// decoratorA.log("Привет!")
-// decoratorB.log("Привет!")
+	decorated.log("Привет!")
+	decoratorA.log("Привет!")
+	decoratorB.log("Привет!")
+}
