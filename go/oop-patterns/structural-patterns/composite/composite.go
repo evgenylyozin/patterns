@@ -2,13 +2,6 @@ package main
 
 import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Composite (КОМПОНОВЩИК)
-// ЦЕЛЬ: создать удобную структуру из объектов в виде дерева
-// ПРИМЕНЕНИЕ: система компонентов в современных фронтенд фреймворках,
-// html дерево и т.п.
-
 // Есть группа определённых связанных классов/объектов, связи между
 // которыми удобно оформить в виде дерева, например File и Folder, где
 // Folder может содержать несколько файлов и папок, а так же содержит
@@ -58,36 +51,41 @@ func recursivelyPrintFoldersData(folder folder) {
 	}
 }
 
-// file1 := &file{name: "file1.jpg"}
-// file2 := &file{name: "file2.png"}
-// file3 := &file{name: "file3.txt"}
-// file4 := &file{name: "file4.js"}
-// file5 := &file{name: "file5.ts"}
-// file6 := &file{name: "file6.go"}
-// file7 := &file{name: "file7.ogg"}
-// file8 := &file{name: "file8.doc"}
-// file9 := &file{name: "file9.css"}
-// file10 := &file{name: "file10.yml"}
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ------------------------------- Клиентский код -------------------------------
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+func main() {
+	file1 := &file{name: "file1.jpg"}
+	file2 := &file{name: "file2.png"}
+	file3 := &file{name: "file3.txt"}
+	file4 := &file{name: "file4.js"}
+	file5 := &file{name: "file5.ts"}
+	file6 := &file{name: "file6.go"}
+	file7 := &file{name: "file7.ogg"}
+	file8 := &file{name: "file8.doc"}
+	file9 := &file{name: "file9.css"}
+	file10 := &file{name: "file10.yml"}
 
-// folder1 := &folder{name: "folder1"}
-// folder2 := &folder{name: "folder2"}
-// folder3 := &folder{name: "folder3"}
-// folder4 := &folder{name: "folder4"}
-// folder5 := &folder{name: "folder5"}
+	folder1 := &folder{name: "folder1"}
+	folder2 := &folder{name: "folder2"}
+	folder3 := &folder{name: "folder3"}
+	folder4 := &folder{name: "folder4"}
+	folder5 := &folder{name: "folder5"}
 
-// folder1.addFolder(folder2)
-// folder1.addFolder(folder3)
-// folder1.addFile(file1)
-// folder1.addFile(file2)
-// folder1.addFile(file3)
-// folder2.addFolder(folder4)
-// folder2.addFile(file4)
-// folder3.addFile(file5)
-// folder3.addFile(file6)
-// folder3.addFile(file7)
-// folder4.addFolder(folder5)
-// folder5.addFile(file8)
-// folder5.addFile(file9)
-// folder5.addFile(file10)
+	folder1.addFolder(folder2)
+	folder1.addFolder(folder3)
+	folder1.addFile(file1)
+	folder1.addFile(file2)
+	folder1.addFile(file3)
+	folder2.addFolder(folder4)
+	folder2.addFile(file4)
+	folder3.addFile(file5)
+	folder3.addFile(file6)
+	folder3.addFile(file7)
+	folder4.addFolder(folder5)
+	folder5.addFile(file8)
+	folder5.addFile(file9)
+	folder5.addFile(file10)
 
-// recursivelyPrintFoldersData(*folder1)
+	recursivelyPrintFoldersData(*folder1)
+}
