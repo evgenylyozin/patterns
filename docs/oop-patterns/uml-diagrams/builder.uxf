@@ -1,5 +1,5 @@
 <diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>220</x><y>250</y><w>210</w><h>200</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
-Builder
+/Builder/
 --
 --
 /+reset()/

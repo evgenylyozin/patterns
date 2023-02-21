@@ -18,7 +18,7 @@
 предоствляется клиентом в 
 момент создания абстракции
 bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>160</y><w>30</w><h>110</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>260</y><w>210</w><h>150</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
-Implementation
+/Implementation/
 --
 --
 +operationImpl()
