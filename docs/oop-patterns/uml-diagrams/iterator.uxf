@@ -1,0 +1,62 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>290</x><y>80</y><w>190</w><h>150</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Iterator/
+--
+--
+/+getNext()/
+/+hasMore(): bool/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый итератор</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>100</y><w>190</w><h>130</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Iterable/
+--
+--
+/+getIterator(): Iterator/
+--
+Задачи:
+--  Описывает операции, 
+которые должна реализовать
+каждая коллекция даных</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>220</y><w>100</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>310</y><w>190</w><h>190</h></coordinates><panel_attributes>ConcreteIterable
+--
+--
++getIterator(): Iterator
+--
+Задачи:
+-- Хранит данные в виде 
+коллекции определённой 
+формы (дерево, список и т.п.)
+--  Содержит логику работы с
+данными, хранимыми в 
+коллекции
+-- Возвращает итератор по
+запросу</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>310</y><w>190</w><h>240</h></coordinates><panel_attributes>ConcreteIterator
+--
+-collection: ConcreteIterable
+-iterationState
+--
++getNext()
++hasMore(): bool
+--
+Задачи:
+--  Содержит ссылку на
+конкретную коллекцию
+-- Возвращает следующий
+элемент коллекции по запросу
+-- Проверяет наличие
+следующего элемента
+-- Хранит состояние прохода
+по коллекции</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>220</y><w>100</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>320</y><w>140</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;instantiate&gt;&gt;</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>410</y><w>140</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>80</y><w>190</w><h>170</h></coordinates><panel_attributes>Клиент
+--
+-- Клиент создаёт экземпляр
+конкретной коллекции
+-- Клиент получает от
+коллекции итератор, 
+способный пройтись по 
+этой коллекции
+-- Клиент работает с 
+итератором, получая 
+очередной элемент коллекции</panel_attributes><additional_attributes></additional_attributes></element></diagram>
