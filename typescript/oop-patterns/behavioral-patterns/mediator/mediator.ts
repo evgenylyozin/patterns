@@ -1,16 +1,10 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// MEDIATOR (МЕДИАТОР)
-// ЦЕЛЬ: избавиться от хаотичных зависимостей между объектами, создав
-// объект - медиатор и перенаправив все запросы между объектами через него
-
-// Метод notify на медиаторе принимает события и вызывает методы на
+// Метод notify на посреднике принимает события и вызывает методы на
 // нужных объектах в соответствии с ними
 interface Mediator {
   notify(sender: object, event: string): void;
 }
 
-// Конкретный медиатор включает в себя логику координации между различными
+// Конкретный посредник включает в себя логику координации между различными
 // объектами
 class ConcreteMediator implements Mediator {
   private component1: Component1;
@@ -37,7 +31,7 @@ class ConcreteMediator implements Mediator {
   }
 }
 
-// Все остальные объекты должны хранить ссылку на медиатора, чтобы вызывать
+// Все остальные объекты должны хранить ссылку на посредника, чтобы вызывать
 // его метод notify
 class BaseComponent {
   protected mediator: Mediator;
@@ -52,8 +46,8 @@ class BaseComponent {
 }
 
 // Конкретные объекты содержат бизнес логику и не зависят ни от других компонентов
-// ни от конкретного медиатора (т.к. они сохраняют в себе ссылку на любого
-// конкретного медиатора)
+// ни от конкретного посредника (т.к. они сохраняют в себе ссылку на любого
+// конкретного посредника)
 class Component1 extends BaseComponent {
   public doA(): void {
     console.log('Component 1 does A.');
@@ -78,13 +72,16 @@ class Component2 extends BaseComponent {
   }
 }
 
-// const c1 = new Component1();
-// const c2 = new Component2();
-// const mediator = new ConcreteMediator(c1, c2);
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const c1 = new Component1();
+const c2 = new Component2();
+const mediator = new ConcreteMediator(c1, c2);
 
-// console.log('Client triggers operation A.');
-// c1.doA();
+console.log('Client triggers operation A.');
+c1.doA();
 
-// console.log('');
-// console.log('Client triggers operation D.');
-// c2.doD();
+console.log('');
+console.log('Client triggers operation D.');
+c2.doD();

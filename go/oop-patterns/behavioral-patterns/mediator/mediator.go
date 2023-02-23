@@ -2,19 +2,13 @@ package main
 
 import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// MEDIATOR (МЕДИАТОР)
-// ЦЕЛЬ: избавиться от хаотичных зависимостей между объектами, создав
-// объект - медиатор и перенаправив все запросы между объектами через него
-
-// Метод notify на медиаторе принимает события и вызывает методы на
+// Метод notify на посреднике принимает события и вызывает методы на
 // нужных объектах в соответствии с ними
 type mediator interface {
 	notify(sender any, event string)
 }
 
-// Конкретный медиатор включает в себя логику координации между различными
+// Конкретный посредник включает в себя логику координации между различными
 // объектами
 type concreteMediator struct {
 	component1 component1
@@ -34,15 +28,15 @@ func (m *concreteMediator) notify(sender any, event string) {
 	}
 }
 
-// Все остальные объекты должны хранить ссылку на медиатора, чтобы вызывать
+// Все остальные объекты должны хранить ссылку на посредника, чтобы вызывать
 // его метод notify
 type baseComponent struct {
 	mediator mediator
 }
 
 // Конкретные объекты содержат бизнес логику и не зависят ни от других компонентов
-// ни от конкретного медиатора (т.к. они сохраняют в себе ссылку на любого
-// конкретного медиатора)
+// ни от конкретного посредника (т.к. они сохраняют в себе ссылку на любого
+// конкретного посредника)
 type component1 struct {
 	baseComponent
 }
@@ -71,16 +65,21 @@ func (c *component2) doD() {
 	c.mediator.notify(c, "D")
 }
 
-// mediator := &concreteMediator{}
-// c1 := component1{baseComponent{mediator: mediator}}
-// c2 := component2{baseComponent{mediator: mediator}}
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ------------------------------- Клиентский код -------------------------------
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+func main() {
+	mediator := &concreteMediator{}
+	c1 := component1{baseComponent{mediator: mediator}}
+	c2 := component2{baseComponent{mediator: mediator}}
 
-// mediator.component1 = c1
-// mediator.component2 = c2
+	mediator.component1 = c1
+	mediator.component2 = c2
 
-// fmt.Println("Client triggers operation A.")
-// c1.doA()
+	fmt.Println("Client triggers operation A.")
+	c1.doA()
 
-// fmt.Println("")
-// fmt.Println("Client triggers operation D.")
-// c2.doD()
+	fmt.Println("")
+	fmt.Println("Client triggers operation D.")
+	c2.doD()
+}
