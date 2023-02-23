@@ -1,11 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// ITERATOR (ИТЕРАТОР)
-// ЦЕЛЬ: создать отдельный от коллекции объект, цель которого - перебор
-// коллекции. Таким образом, объект, отвечающий за хранение и организацию
-// данных не будет разрастаться и будет выполнять только свою основную
-// функцию.
-
 // Конкретный итератор содержит логику прохода по коллекции
 class StringsArrayIterator {
   collection;
@@ -74,21 +66,25 @@ class WordsCollection {
   }
 }
 
-// const collection = new WordsCollection();
-// collection.addItem('First');
-// collection.addItem('Second');
-// collection.addItem('Third');
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// const iterator = collection.getIterator();
+const collection = new WordsCollection();
+collection.addItem('First');
+collection.addItem('Second');
+collection.addItem('Third');
 
-// console.log('Straight traversal:');
-// while (iterator.valid()) {
-//   console.log(iterator.next());
-// }
+const iterator = collection.getIterator();
 
-// console.log('');
-// console.log('Reverse traversal:');
-// const reverseIterator = collection.getReverseIterator();
-// while (reverseIterator.valid()) {
-//   console.log(reverseIterator.next());
-// }
+console.log('Straight traversal:');
+while (iterator.valid()) {
+  console.log(iterator.next());
+}
+
+console.log('');
+console.log('Reverse traversal:');
+const reverseIterator = collection.getReverseIterator();
+while (reverseIterator.valid()) {
+  console.log(reverseIterator.next());
+}

@@ -1,13 +1,6 @@
 package main
 
-
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// ITERATOR (ИТЕРАТОР)
-// ЦЕЛЬ: создать отдельный от коллекции объект, цель которого - перебор
-// коллекции. Таким образом, объект, отвечающий за хранение и организацию
-// данных не будет разрастаться и будет выполнять только свою основную
-// функцию.
+import "fmt"
 
 type iteratorValues interface {
 	string | int
@@ -88,20 +81,25 @@ func (c *wordsCollection) getReverseIterator() iIterator[string] {
 	return &stringsSliceIterator{collection: *c, position: c.getCount() - 1, reverse: true}
 }
 
-// collection := wordsCollection{}
-// collection.addItem("First")
-// collection.addItem("Second")
-// collection.addItem("Third")
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ------------------------------- Клиентский код -------------------------------
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+func main() {
+	collection := wordsCollection{}
+	collection.addItem("First")
+	collection.addItem("Second")
+	collection.addItem("Third")
 
-// iterator := collection.getIterator()
+	iterator := collection.getIterator()
 
-// fmt.Println("Straight traversal:")
-// for iterator.valid() {
-// 	fmt.Println(iterator.next())
-// }
+	fmt.Println("Straight traversal:")
+	for iterator.valid() {
+		fmt.Println(iterator.next())
+	}
 
-// fmt.Println("Reverse traversal:")
-// reverseIterator := collection.getReverseIterator()
-// for reverseIterator.valid() {
-// 	fmt.Println(reverseIterator.next())
-// }
+	fmt.Println("Reverse traversal:")
+	reverseIterator := collection.getReverseIterator()
+	for reverseIterator.valid() {
+		fmt.Println(reverseIterator.next())
+	}
+}
