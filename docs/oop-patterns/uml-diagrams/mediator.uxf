@@ -1,0 +1,69 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>310</x><y>265</y><w>190</w><h>130</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Mediator/
+--
+--
+/+notify(data)/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый посредник</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>385</y><w>100</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>495</y><w>190</w><h>260</h></coordinates><panel_attributes>ConcreteMediator
+--
+-componentA: ComponentA
+-componentB: ComponentB
+--
++notify(data)
++operationForA()
++operationForB()
+--
+Задачи:
+-- Хранить ссылки на
+ компоненты, посредником
+которых он является
+-- Получать данные от этих 
+компонентов и проделывать
+необходимые операции в
+соответствии с ними, в 
+частности вызывая методы
+связанных компонентов</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>265</y><w>190</w><h>220</h></coordinates><panel_attributes>ComponentA
+--
+-mediator: Mediator
+--
++operationA()
+--
+Задачи:
+-- Хранить ссылку на 
+посредника
+-- Содержать бизнес-логику
+-- Вызывать метод посредника
+с передачей всех данных для
+того, чтобы  тот смог 
+скоординировать действия
+текущего компонента с 
+другими связанными с ним</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>265</y><w>190</w><h>220</h></coordinates><panel_attributes>ComponentB
+--
+-mediator: Mediator
+--
++operationB()
+--
+Задачи:
+-- Хранить ссылку на 
+посредника
+-- Содержать бизнес-логику
+-- Вызывать метод посредника
+с передачей всех данных для
+того, чтобы  тот смог 
+скоординировать действия
+текущего компонента с 
+другими связанными с ним</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>285</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>285</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>475</y><w>110</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;90;40</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>475</y><w>110</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>90;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>35</y><w>190</w><h>170</h></coordinates><panel_attributes>Клиент
+--
+-- Клиент создаёт конкретные
+компоненты
+-- Создаёт посредника, 
+регистрируя при этом 
+компоненты в посреднике 
+-- Вызывает методы на 
+компонентах, активируя при
+ этом логику внутри 
+посредника</panel_attributes><additional_attributes></additional_attributes></element></diagram>
