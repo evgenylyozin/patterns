@@ -1,13 +1,5 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// FLYWEIGHT (ПРИСПОСОБЛЕНЕЦ)
-// ЦЕЛЬ: уменьшить количество оперативной памяти, выделяемое на работу с
-// объектами в системе
-// УТОЧНЕНИЕ: если в текущем виде программа не расходует большое количество
-// оперативной памяти - нет смысла применять этот паттерн
-
-// Flyweight объект хранит в себе общее для других объектов состояние, а так же
-// обрабатывает уникальное состояние. При условии, что есть объект Flyweight с
+// Приспособленец хранит в себе общее для других объектов состояние, а так же
+// обрабатывает уникальное состояние. При условии, что есть объект-приспособленец с
 // требуемым общим состоянием - мы работаем с ним, а не создаём новый объект.
 class Flyweight {
   private sharedState: any;
@@ -23,8 +15,8 @@ class Flyweight {
   }
 }
 
-// Фабрика Flyweight объектов создаёт и управляет flyweight объектами, когда
-// клиент запрашивает очередной flyweight объект - фабрика либо возвращает
+// Фабрика приспособленцев создаёт и управляет ими, когда
+// клиент запрашивает очередной объект - фабрика либо возвращает
 // подходящий, либо возвращает новый
 class FlyweightFactory {
   private flyweights: { [key: string]: Flyweight } = <any>{};
@@ -63,29 +55,37 @@ class FlyweightFactory {
   }
 }
 
-// const factory = new FlyweightFactory([
-//   ['Chevrolet', 'Camaro2018', 'pink'],
-//   ['Mercedes Benz', 'C300', 'black'],
-//   ['Mercedes Benz', 'C500', 'red'],
-//   ['BMW', 'M5', 'red'],
-//   ['BMW', 'X6', 'white'],
-// ]);
-// factory.listFlyweights();
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// function addCarToPoliceDatabase(
-//   ff: FlyweightFactory,
-//   plates: string,
-//   owner: string,
-//   brand: string,
-//   model: string,
-//   color: string
-// ) {
-//   console.log('\nClient: Adding a car to database.');
-//   const flyweight = ff.getFlyweight([brand, model, color]);
-//   flyweight.operation([plates, owner]);
-// }
+const factory = new FlyweightFactory([
+  ['Chevrolet', 'Camaro2018', 'pink'],
+  ['Mercedes Benz', 'C300', 'black'],
+  ['Mercedes Benz', 'C500', 'red'],
+  ['BMW', 'M5', 'red'],
+  ['BMW', 'X6', 'white'],
+]);
+factory.listFlyweights();
 
-// addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'M5', 'red');
-// addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'X1', 'red');
+// В данном случае в качестве контекста выступает функция addCarToPoliceDatabase
+// именно здесь происходит приём уникального состояния, получение соответствующего
+// объекта-приспособленца и вызов его метода с уникальным состоянием
+// всё это можно оформить в виде отдельного класса/объекта
+function addCarToPoliceDatabase(
+  ff: FlyweightFactory,
+  plates: string,
+  owner: string,
+  brand: string,
+  model: string,
+  color: string
+) {
+  console.log('\nClient: Adding a car to database.');
+  const flyweight = ff.getFlyweight([brand, model, color]);
+  flyweight.operation([plates, owner]);
+}
 
-// factory.listFlyweights();
+addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'M5', 'red');
+addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'X1', 'red');
+
+factory.listFlyweights();

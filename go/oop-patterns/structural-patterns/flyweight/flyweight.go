@@ -6,16 +6,8 @@ import (
 	"strings"
 )
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// FLYWEIGHT (ПРИСПОСОБЛЕНЕЦ)
-// ЦЕЛЬ: уменьшить количество оперативной памяти, выделяемое на работу с
-// объектами в системе
-// УТОЧНЕНИЕ: если в текущем виде программа не расходует большое количество
-// оперативной памяти - нет смысла применять этот паттерн
-
-// Flyweight объект хранит в себе общее для других объектов состояние, а так же
-// обрабатывает уникальное состояние. При условии, что есть объект Flyweight с
+// Приспособленец хранит в себе общее для других объектов состояние, а так же
+// обрабатывает уникальное состояние. При условии, что есть объект-приспособленец с
 // требуемым общим состоянием - мы работаем с ним, а не создаём новый объект.
 type flyweight struct {
 	sharedState any
@@ -27,8 +19,8 @@ func (f *flyweight) operation(uniqueState any) {
 	fmt.Printf("Flyweight: Displaying shared %s and unique %s state.", s, u)
 }
 
-// Фабрика Flyweight объектов создаёт и управляет flyweight объектами, когда
-// клиент запрашивает очередной flyweight объект - фабрика либо возвращает
+// Фабрика приспособленцев создаёт и управляет ими, когда
+// клиент запрашивает очередной объект - фабрика либо возвращает
 // подходящий, либо возвращает новый
 type flyweightFactory struct {
 	flyweights map[string]flyweight
@@ -66,24 +58,32 @@ func newFlyweightFactory(initialFlyweights [][]string) *flyweightFactory {
 	return &flyweightFactory{flyweights: mapOfFlyweights}
 }
 
-// хелпер для демонстрации
-
+// В данном случае в качестве контекста выступает функция addCarToPoliceDatabase
+// именно здесь происходит приём уникального состояния, получение соответствующего
+// объекта-приспособленца и вызов его метода с уникальным состоянием
+// всё это можно оформить в виде отдельного объекта
 func addCarToPoliceDatabase(ff flyweightFactory, plates, owner, brand, model, color string) {
 	fmt.Println("\nClient: Adding a car to database.")
 	flyweight := ff.getFlyweight([]string{brand, model, color})
 	flyweight.operation([]string{plates, owner})
 }
 
-// factory := newFlyweightFactory([][]string{
-// 	{"Chevrolet", "Camaro2018", "pink"},
-// 	{"Mercedes Benz", "C300", "black"},
-// 	{"Mercedes Benz", "C500", "red"},
-// 	{"BMW", "M5", "red"},
-// 	{"BMW", "X6", "white"}})
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// factory.listFlyweights()
+func main() {
+	factory := newFlyweightFactory([][]string{
+		{"Chevrolet", "Camaro2018", "pink"},
+		{"Mercedes Benz", "C300", "black"},
+		{"Mercedes Benz", "C500", "red"},
+		{"BMW", "M5", "red"},
+		{"BMW", "X6", "white"}})
 
-// addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "M5", "red")
-// addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "X1", "red")
+	factory.listFlyweights()
 
-// factory.listFlyweights()
+	addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "M5", "red")
+	addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "X1", "red")
+
+	factory.listFlyweights()
+}
