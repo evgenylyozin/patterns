@@ -1,0 +1,69 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>270</x><y>120</y><w>190</w><h>190</h></coordinates><panel_attributes>FlyweightFactory
+--
+-cache: Flyweight[]
+--
++getFlyweight(state)
+--
+Задачи:
+--  Хранить ссылки на объекты-
+приспособленцы
+-- Создавать новые объекты-
+приспособленцы с 
+необходимым состоянием, 
+если нужного объекта нет в
+кэше</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>360</y><w>190</w><h>140</h></coordinates><panel_attributes>Flyweight
+--
+-repeatingState
+--
++operation(uniqueState)
+--
+Задачи:
+-- Хранить общее состояние
+-- Выполнять бизнес-логику 
+при передаче уникального 
+состояния</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>300</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>210</y><w>190</w><h>240</h></coordinates><panel_attributes>Context
+--
+-uniqueState
+-flyweight: Flyweight
+--
++operation()
+--
+Задачи:
+-- Хранить уникальное 
+состояние
+-- Хранить ссылку на 
+объект-приспособленец
+-- Выполнять бизнес-логику 
+с учетом уникального 
+состояния за счет вызова
+соответствующего метода
+объекта-приспособленца</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>250</y><w>150</w><h>140</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;120;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>160</y><w>150</w><h>80</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;call&gt;&gt;</panel_attributes><additional_attributes>10;10;130;60</additional_attributes></element><element><id>UMLNote</id><coordinates><x>840</x><y>200</y><w>190</w><h>270</h></coordinates><panel_attributes>Контекст создаётся, 
+принимая уникальное 
+состояние. После чего, 
+контекст вызывает метод 
+фабрики приспособленцев
+для получения ссылки на
+соответствующий объект-
+приспособленец, и 
+сохраняет её внутри себя.
+
+При вызове клиентом 
+операций на объекте
+контекста - обычно происходит
+передача запроса вместе с
+уникальным состоянием на 
+обработку 
+объекту-приспособленцу
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>300</y><w>100</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>0</y><w>190</w><h>160</h></coordinates><panel_attributes>Клиент
+--
+- context: Context
+--
++useContext(context)
+--
+Задачи:
+-- Клиент создаёт экземпляр
+контекста
+-- Клиент работает с 
+контекстом,
+вызывая его методы</panel_attributes><additional_attributes></additional_attributes></element></diagram>
