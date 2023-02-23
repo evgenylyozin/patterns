@@ -1,0 +1,51 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>390</x><y>350</y><w>190</w><h>160</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Interpreter/
+--
+--
+/+interpret(context)/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый класс выражений (тер-
+минальных или 
+нетерминальных)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>500</y><w>100</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>590</y><w>190</w><h>150</h></coordinates><panel_attributes>TerminalExpression
+--
+--
++interpret(context)
+--
+Задачи:
+--  Фактически выдаёт
+ результат интерпретации
+выражения (выполняет 
+операции, возвращает 
+значение и т.п.)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>140</y><w>190</w><h>130</h></coordinates><panel_attributes>NonterminalExpression
+--
+-expressions: Interpreter[]
+--
++interpret(context)
+--
+Задачи:
+--  Обычно вызывает методы
+интерпретации выражений,
+которые хранит</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>260</y><w>100</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>350</y><w>190</w><h>80</h></coordinates><panel_attributes>Context
+--
+Содержит полезные для
+клиента и/или выражений
+данные</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>350</y><w>190</w><h>190</h></coordinates><panel_attributes>Клиент
+--
+- AST: Interpreter[]
+--
++useAST(AST)
+--
+Задачи:
+-- Клиент создаёт абстрактное 
+синтаксическое дерево из
+выражений
+-- Клиент вызывает метод
+для интерпретации на 
+корневом выражении или 
+другим способом запускает
+процесс интерпретаци</panel_attributes><additional_attributes></additional_attributes></element></diagram>
