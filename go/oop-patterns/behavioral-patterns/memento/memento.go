@@ -6,11 +6,6 @@ import (
 	"time"
 )
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// MEMENTO (СНИМОК)
-// ЦЕЛЬ: получить созможность восстанавливать предыдущее состояние объекта
-
 // объект, состояние которого нужно сохранять и восстанавливать
 // должен иметь методы для сохранения своего состояния в объект снимка и
 // восстановления своего состояния из такого объекта
@@ -43,7 +38,7 @@ func (o *originator) restore(memento memento) {
 	fmt.Printf("Originator: My state has changed to: %v\n", o.state)
 }
 
-// Интерфейс мементо объекта должен давать возможность получить данные о состоянии
+// Интерфейс снимка должен давать возможность получить данные о состоянии
 // обратно
 type memento interface {
 	getState() string
@@ -71,9 +66,9 @@ func (m *concreteMemento) getDate() string {
 	return m.date
 }
 
-// Объект класса Caretaker напрямую не зависит от конкретного мементо объекта
+// Смотритель напрямую не зависит от конкретного снимка
 // он так же не зависит от конкретного объекта, чьё состояние сохраняется
-// его задача - хранить объекты мементов и вызывать соответствующие методы
+// его задача - хранить снимки и вызывать соответствующие методы
 // других объектов для сохранения и восстановления состояния
 type caretaker struct {
 	mementos []memento
@@ -105,23 +100,28 @@ func (c *caretaker) showHistory() {
 	}
 }
 
-// originator := &originator{state: "Super-duper-super-puper-super."}
-// caretaker := caretaker{originator: originator}
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ------------------------------- Клиентский код -------------------------------
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+func main() {
+	originator := &originator{state: "Super-duper-super-puper-super."}
+	caretaker := caretaker{originator: originator}
 
-// caretaker.backup()
-// originator.doSomething()
+	caretaker.backup()
+	originator.doSomething()
 
-// caretaker.backup()
-// originator.doSomething()
+	caretaker.backup()
+	originator.doSomething()
 
-// caretaker.backup()
-// originator.doSomething()
+	caretaker.backup()
+	originator.doSomething()
 
-// fmt.Println("")
-// caretaker.showHistory()
+	fmt.Println("")
+	caretaker.showHistory()
 
-// fmt.Println("\nClient: Now, let's rollback!")
-// caretaker.undo()
+	fmt.Println("\nClient: Now, let's rollback!")
+	caretaker.undo()
 
-// fmt.Println("\nClient: Once more!")
-// caretaker.undo()
+	fmt.Println("\nClient: Once more!")
+	caretaker.undo()
+}

@@ -1,8 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// MEMENTO (СНИМОК)
-// ЦЕЛЬ: получить созможность восстанавливать предыдущее состояние объекта
-
 // объект, состояние которого нужно сохранять и восстанавливать
 // должен иметь методы для сохранения своего состояния в объект снимка и
 // восстановления своего состояния из такого объекта
@@ -37,7 +32,7 @@ class Originator {
   }
 }
 
-// Интерфейс мементо объекта должен давать возможность получить данные о состоянии
+// Интерфейс снимка должен давать возможность получить данные о состоянии
 // обратно
 interface Memento {
   getState(): string;
@@ -69,9 +64,9 @@ class ConcreteMemento implements Memento {
   }
 }
 
-// Объект класса Caretaker напрямую не зависит от конкретного мементо объекта
+// Смотритель напрямую не зависит от конкретного снимка
 // он так же не зависит от конкретного объекта, чьё состояние сохраняется
-// его задача - хранить объекты мементов и вызывать соответствующие методы
+// его задача - хранить снимки и вызывать соответствующие методы
 // других объектов для сохранения и восстановления состояния
 class Caretaker {
   private mementos: Memento[] = [];
@@ -111,23 +106,27 @@ class Caretaker {
   }
 }
 
-// const originator = new Originator('Super-duper-super-puper-super.');
-// const caretaker = new Caretaker(originator);
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// caretaker.backup();
-// originator.doSomething();
+const originator = new Originator('Super-duper-super-puper-super.');
+const caretaker = new Caretaker(originator);
 
-// caretaker.backup();
-// originator.doSomething();
+caretaker.backup();
+originator.doSomething();
 
-// caretaker.backup();
-// originator.doSomething();
+caretaker.backup();
+originator.doSomething();
 
-// console.log('');
-// caretaker.showHistory();
+caretaker.backup();
+originator.doSomething();
 
-// console.log("\nClient: Now, let's rollback!\n");
-// caretaker.undo();
+console.log('');
+caretaker.showHistory();
 
-// console.log('\nClient: Once more!\n');
-// caretaker.undo();
+console.log("\nClient: Now, let's rollback!\n");
+caretaker.undo();
+
+console.log('\nClient: Once more!\n');
+caretaker.undo();
