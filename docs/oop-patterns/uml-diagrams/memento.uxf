@@ -1,0 +1,71 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>340</x><y>90</y><w>190</w><h>130</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Memento/
+--
+--
+/+getState()/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый снимок</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>210</y><w>100</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>310</y><w>190</w><h>160</h></coordinates><panel_attributes>ConcreteMemento
+--
+-state
+--
++ConcreteMemento(state)
++getState()
+--
+Задачи:
+--  При создании принимает 
+состояние и хранит его
+-- По запросу возвращает 
+состояние</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>90</y><w>190</w><h>300</h></coordinates><panel_attributes>Caretaker
+--
+-originator: Originator
+-history: Memento[]
+--
++undo()
++backup()
+--
+Задачи:
+--  При создании принимает 
+ссылку на объект-источник и 
+хранит её
+-- По запросу вызывает 
+методы источника для 
+создания нового объекта-
+снимка и сохраняет ссылку
+на него
+-- По запросу выдаёт 
+источнику последний объект-
+снимок для восстановления
+состояния</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>130</y><w>140</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>310</y><w>190</w><h>240</h></coordinates><panel_attributes>Originator
+--
+-state
+--
++save(): Memento
++restore(m: Memento)
+--
+Задачи:
+--  Выполняет бизнес-логику,
+меняя при этом своё 
+состояние
+-- По запросу сохраняет своё
+состояние посредством
+создания объекта-снимка
+-- По запросу восстанавливает
+своё состояние из 
+переданного объекта-снимка</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>340</y><w>140</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;instantiate&gt;&gt;</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>90</y><w>190</w><h>200</h></coordinates><panel_attributes>Клиент
+--
+-- Создаёт объект-источник
+-- Создаёт объект-смотритель
+-- Работает с источником, 
+периодически вызывая
+методы сохранения состояния 
+на объекте-смотрителе и 
+при необходимости 
+восстанавливает состояние 
+источника через 
+соответствующий метод 
+смотрителя</panel_attributes><additional_attributes></additional_attributes></element></diagram>
