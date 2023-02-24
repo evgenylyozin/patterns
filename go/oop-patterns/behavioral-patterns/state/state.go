@@ -2,14 +2,6 @@ package main
 
 import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// STATE (СОСТОЯНИЕ)
-// ЦЕЛЬ: организовать систему объектов внути которой при изменении состояния
-// меняется поведение объектов
-// ВАРИАНТ ПРИМЕНЕНИЯ: разгрузка массивных блоков if или swith, когда они
-// работают с состоянием
-
 // Контекст - объект, используемый клиентом. Он хранит в себе ссылку на объект
 // текущего состояния и меняет своё поведение в зависимости от этого
 // состояния
@@ -64,7 +56,7 @@ type concreteStateA struct {
 func (s *concreteStateA) handle1() {
 	fmt.Println("ConcreteStateA handles request1.")
 	fmt.Println("ConcreteStateA wants to change the state of the context.")
-	s.context.transitionTo(&concreteStateB{state{name: "concreteStateB", context: s.context}})
+	s.context.transitionTo(&concreteStateB{state{name: "concreteStateB"}})
 }
 
 func (s *concreteStateA) handle2() {
@@ -83,11 +75,17 @@ func (s *concreteStateB) handle1() {
 func (s *concreteStateB) handle2() {
 	fmt.Println("ConcreteStateB handles request2.")
 	fmt.Println("ConcreteStateB wants to change the state of the context.")
-	s.context.transitionTo(&concreteStateA{state{name: "concreteStateA", context: s.context}})
+	s.context.transitionTo(&concreteStateA{state{name: "concreteStateA"}})
 }
 
-// context := context{}
-// initialState := &concreteStateA{state{name: "concreteStateA", context: &context}}
-// context.state = initialState
-// context.request1()
-// context.request2()
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+func main() {
+	context := context{}
+	initialState := &concreteStateA{state{name: "concreteStateA", context: &context}}
+	context.state = initialState
+	context.request1()
+	context.request2()
+}
