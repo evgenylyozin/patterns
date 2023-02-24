@@ -1,0 +1,46 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>370</x><y>140</y><w>190</w><h>340</h></coordinates><panel_attributes>BaseClass
+--
+--
+#templateMethod()
++operation1()
++operation2()
+/+operation3()/
+/+operation4()/
+--
+Задачи:
+-- Задаёт скелет шаблонного
+метода
+-- Определяет операции, 
+которые должны быть 
+одинаковыми в любом 
+подклассе
+-- Абстрактно описывает 
+операции, которые должны
+быть в обязательном порядке
+перезаписаны подклассами
+-- Определяет операции, 
+которые могут быть 
+перезаписаны подклассами, а
+могут использоваться как есть</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>140</y><w>190</w><h>220</h></coordinates><panel_attributes>ConcreteClass
+--
+--
++operation2()
++operation3()
++operation4()
+--
+Задачи:
+-- Переопределяет те методы,
+которые имеет право 
+переопределить и которые
+нужно переопределять в
+соответствии с бизнес-логикой
+-- Реализует абстрактные
+методы, которые обязан
+реализовать</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>200</y><w>130</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+extends</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>380</y><w>190</w><h>100</h></coordinates><panel_attributes>Клиент
+--
+-- Создаёт экземпляр
+конкретного класса
+-- Вызывает шаблонный
+метод на созданном 
+экземпляре</panel_attributes><additional_attributes></additional_attributes></element></diagram>
