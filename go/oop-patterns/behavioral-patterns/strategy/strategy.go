@@ -6,16 +6,6 @@ import (
 	"strings"
 )
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// STRATEGY (СТРАТЕГИЯ)
-// ЦЕЛЬ: создать объект контекста, а так же несколько объектов, имплементирующих
-// разные подходы к решению бизнес задачи. Клиент может выбирать стратегию,
-// передавать её в контекст, тем самым меняя поведение класса контекста
-// без его расширения
-// ВАРИАНТ ИСПОЛЬЗОВАНИЯ: в приложении поиска маршрута заменять внутри контекста
-// логику поиска на поиск для авто или пешехода в зависимости от нужд клиента
-
 // Контекст используется клиентом для вызова методов, решающих бизнес
 // задачи
 type strategyContext struct {
@@ -61,12 +51,18 @@ func (s *concreteStrategyB) doAlgorithm(data []string) []string {
 	return data
 }
 
-// context := strategyContext{strategy: &concreteStrategyA{}}
-// fmt.Println("Client: Strategy is set to normal sorting.")
-// context.doSomeBusinessLogic()
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// fmt.Println("")
+func main() {
+	context := strategyContext{strategy: &concreteStrategyA{}}
+	fmt.Println("Client: Strategy is set to normal sorting.")
+	context.doSomeBusinessLogic()
 
-// fmt.Println("Client: Strategy is set to reverse sorting.")
-// context.setStrategy(&concreteStrategyB{})
-// context.doSomeBusinessLogic()
+	fmt.Println("")
+
+	fmt.Println("Client: Strategy is set to reverse sorting.")
+	context.setStrategy(&concreteStrategyB{})
+	context.doSomeBusinessLogic()
+}

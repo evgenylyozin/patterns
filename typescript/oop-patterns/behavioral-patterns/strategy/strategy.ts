@@ -1,13 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// STRATEGY (СТРАТЕГИЯ)
-// ЦЕЛЬ: создать объект контекста, а так же несколько объектов, имплементирующих
-// разные подходы к решению бизнес задачи. Клиент может выбирать стратегию,
-// передавать её в контекст, тем самым меняя поведение класса контекста
-// без его расширения
-// ВАРИАНТ ИСПОЛЬЗОВАНИЯ: в приложении поиска маршрута заменять внутри контекста
-// логику поиска на поиск для авто или пешехода в зависимости от нужд клиента
-
 // Контекст используется клиентом для вызова методов, решающих бизнес
 // задачи
 class StrategyContext {
@@ -52,12 +42,16 @@ class ConcreteStrategyB implements iStrategy {
   }
 }
 
-// const context = new StrategyContext(new ConcreteStrategyA());
-// console.log('Client: Strategy is set to normal sorting.');
-// context.doSomeBusinessLogic();
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// console.log('');
+const strategyContext = new StrategyContext(new ConcreteStrategyA());
+console.log('Client: Strategy is set to normal sorting.');
+strategyContext.doSomeBusinessLogic();
 
-// console.log('Client: Strategy is set to reverse sorting.');
-// context.setStrategy(new ConcreteStrategyB());
-// context.doSomeBusinessLogic();
+console.log('');
+
+console.log('Client: Strategy is set to reverse sorting.');
+strategyContext.setStrategy(new ConcreteStrategyB());
+strategyContext.doSomeBusinessLogic();
