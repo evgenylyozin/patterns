@@ -2,17 +2,6 @@ package main
 
 import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// VISITOR (ПОСЕТИТЕЛЬ)
-// ЦЕЛЬ: Отделить алгоритмы от объектов на которых они оперируют
-// ВАРИАНТ ИСПОЛЬЗОВАНИЯ: Предположим, есть структура с узлами разных типов,
-// например HTML дерево и есть задача превратить это дерево в XML документ без
-// определения доп. методов для возврата данных для XML на каждом типе узлов.
-// Можно создать специальный
-// объект, который сможет принимать любой тип узла, забирать из него нужную
-// информацию и строить XML документ
-
 // Каждый компонент, который нужно посетить должен содержать метод,
 // который позволит принять посетителя
 type component interface {
@@ -75,18 +64,22 @@ func (cv *concreteVisitor2) visitConcreteComponentB(element *concreteComponentB)
 
 }
 
-// comp1 := concreteComponentA{}
-// comp2 := concreteComponentB{}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// fmt.Println(
-// 	"The client code works with all visitors via the base Visitor interface:")
-// visitor1 := &concreteVisitor1{}
-// visitor2 := &concreteVisitor2{}
-// fmt.Println("It allows the same client code to work with different types of visitors:")
+func main() {
+	comp1 := concreteComponentA{}
+	comp2 := concreteComponentB{}
 
-// comp1.accept(visitor1)
-// comp1.accept(visitor2)
-// comp2.accept(visitor1)
-// comp2.accept(visitor2)
+	fmt.Println(
+		"The client code works with all visitors via the base Visitor interface:")
+	visitor1 := &concreteVisitor1{}
+	visitor2 := &concreteVisitor2{}
+	fmt.Println("It allows the same client code to work with different types of visitors:")
 
-//------------------------------------------------------------------------------
+	comp1.accept(visitor1)
+	comp1.accept(visitor2)
+	comp2.accept(visitor1)
+	comp2.accept(visitor2)
+}
