@@ -1,0 +1,56 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>330</x><y>60</y><w>190</w><h>150</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Visitor/
+--
+--
+/+visit(c: ConcreteComponent)/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый конкретный
+посетитель</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>60</y><w>190</w><h>150</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Component/
+--
+--
+/+accept(v: Visitor)/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый конкретный
+посещаемый объект</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>200</y><w>100</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>200</y><w>100</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>310</y><w>190</w><h>210</h></coordinates><panel_attributes>ConcreteVisitor
+--
+--
++visit(c: ConcreteComponent)
+--
+Задачи:
+-- При вызове 
+соответствующего метода
+посещения конкретного
+компонента выполняет
+операции над этим 
+компонентом (вызывает
+его методы, выполняет
+дополнительные операции,
+использует его данные и т.п.)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>310</y><w>190</w><h>160</h></coordinates><panel_attributes>ConcreteComponent
+--
+--
++accept(v: Visitor)
+--
+Задачи:
+-- При вызове метода приёма
+посетителя, вызывает метод
+посещения, соответствующий
+своему типу на посетителе и
+обычно передаёт себя в 
+качестве аргумента</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>70</y><w>140</w><h>140</h></coordinates><panel_attributes>Клиент
+--
+-- Создаёт экземпляр
+посещаемого объекта
+-- Создаёт экземпляр 
+посетителя
+-- Вызывает метод для 
+приёма посетителя на 
+посещаемом объекте</panel_attributes><additional_attributes></additional_attributes></element></diagram>
