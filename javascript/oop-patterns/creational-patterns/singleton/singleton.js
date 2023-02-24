@@ -1,12 +1,19 @@
-//------------------------------------------------------------------------------
-// SINGLETON (СИНГЛТОН)
-// ЦЕЛЬ: создать только 1 объект определённого типа. А в случае повторного
-// запроса на получение такого объекта отдавать ссылку на уже созданный.
-// ВАРИАНТ ИСПОЛЬЗОВАНИЯ: объект для работы с БД
 // -- Уточнение --
 // Начиная с ES6 можно создать нужный объект в отдельном модуле и экспортировать
-// его, в таком случае не будет необходимости оформлять IIFE
+// его, в таком случае не будет необходимости оформлять IIFE или специальный
+// класс
 
+// Пример с классом
+class SingletonClass {
+  static instance = null;
+  constructor() {
+    if (SingletonClass.instance) {
+      return SingletonClass.instance;
+    }
+    SingletonClass.instance = this;
+    return SingletonClass.instance;
+  }
+}
 // Пример с IIFE
 const Singleton = (() => {
   let instance = null;
@@ -23,15 +30,22 @@ const Singleton = (() => {
   };
 })();
 
-// const firstInstance = Singleton.instantiate();
-// const secondInstance = Singleton.instantiate();
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Тест классового подхода
+console.log(new SingletonClass() === new SingletonClass());
 
-// console.log(firstInstance.name);
-// console.log(secondInstance.name);
-// console.log(firstInstance === secondInstance);
+// Тест IIFE
+const firstInstance = Singleton.instantiate();
+const secondInstance = Singleton.instantiate();
 
-// firstInstance.name = 'UPDATED DB object';
+console.log(firstInstance.name);
+console.log(secondInstance.name);
+console.log(firstInstance === secondInstance);
 
-// console.log(firstInstance.name);
-// console.log(secondInstance.name);
-// console.log(firstInstance === secondInstance);
+firstInstance.name = 'UPDATED DB object';
+
+console.log(firstInstance.name);
+console.log(secondInstance.name);
+console.log(firstInstance === secondInstance);

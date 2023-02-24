@@ -5,13 +5,6 @@ import (
 	"sync"
 )
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// SINGLETON (СИНГЛТОН)
-// ЦЕЛЬ: создать только 1 объект определённого типа. А в случае повторного
-// запроса на получение такого объекта отдавать ссылку на уже созданный.
-// ВАРИАНТ ИСПОЛЬЗОВАНИЯ: объект для работы с БД
-
 var lock = &sync.Mutex{}
 
 type singleton struct {
@@ -36,13 +29,19 @@ func getSingletonInstance() *singleton {
 	return singleInstance
 }
 
-// singleton1 := getSingletonInstance()
-// singleton2 := getSingletonInstance()
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// fmt.Println(singleton1.name)
-// fmt.Println(singleton2.name)
+func main() {
+	singleton1 := getSingletonInstance()
+	singleton2 := getSingletonInstance()
 
-// singleton1.name = "UPDATED DB Object"
+	fmt.Println(singleton1.name)
+	fmt.Println(singleton2.name)
 
-// fmt.Println(singleton1.name)
-// fmt.Println(singleton2.name)
+	singleton1.name = "UPDATED DB Object"
+
+	fmt.Println(singleton1.name)
+	fmt.Println(singleton2.name)
+}
