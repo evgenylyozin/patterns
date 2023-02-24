@@ -25,7 +25,7 @@
 
 ## UML диаграмма
 
-![UML диаграмма наблюдателя](https://github.com/evgenylyozin/patterns/blob/ba6065800691fe9485bdf033dfb4a6ff54b737de/docs/oop-patterns/uml-diagrams/observer.png)
+![UML диаграмма наблюдателя](https://github.com/evgenylyozin/patterns/blob/eb0d22639fa6bfc572c7249d16f44e966163e3ab/docs/oop-patterns/uml-diagrams/observer.png)
 
 [Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)
 
