@@ -2,13 +2,7 @@ package main
 
 import "fmt"
 
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// OBSERVER (НАБЛЮДАТЕЛЬ)
-// ЦЕЛЬ: организовать систему оповещений о событиях, происходящих с каким-либо
-// объектом
-
-// Интерфейс наблюдателя содержит методы, которые дают каблюдателю
+// Интерфейс наблюдателя содержит методы, которые дают наблюдателю
 // возможность получать уведомления от субъекта
 type observer interface {
 	notify(evt string)
@@ -16,7 +10,7 @@ type observer interface {
 }
 
 // Интерфейс Publisher определяет возможность подписываться и отписываться от
-// уведомлений от субъекта, а так же имеет метод для оповещения всех
+// уведомлений, а так же имеет метод для оповещения всех
 // текущих подписчиков субъекта
 type publisher interface {
 	subscribe(obs observer) publisher
@@ -92,21 +86,26 @@ func (p *concretePublisher) printObservers() {
 	}
 }
 
-// publisher := concretePublisher{}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// observer1 := &concreteObserver1{}
-// observer2 := &concreteObserver2{}
-// observer3 := &concreteObserver3{}
+func main() {
+	publisher := concretePublisher{}
 
-// publisher.subscribe(observer1).subscribe(observer2).subscribe(observer3)
+	observer1 := &concreteObserver1{}
+	observer2 := &concreteObserver2{}
+	observer3 := &concreteObserver3{}
 
-// publisher.printObservers()
+	publisher.subscribe(observer1).subscribe(observer2).subscribe(observer3)
 
-// publisher.notifyAll("ПРИВЕТ!")
+	publisher.printObservers()
 
-// publisher.unsubscribe(observer2)
+	publisher.notifyAll("ПРИВЕТ!")
 
-// publisher.printObservers()
+	publisher.unsubscribe(observer2)
 
-// publisher.notifyAll("ПОКА!")
+	publisher.printObservers()
 
+	publisher.notifyAll("ПОКА!")
+}

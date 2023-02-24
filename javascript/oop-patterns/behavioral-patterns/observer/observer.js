@@ -1,8 +1,3 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// OBSERVER (НАБЛЮДАТЕЛЬ)
-// ЦЕЛЬ: организовать систему оповещений о событиях, происходящих с каким-либо
-// объектом
 class ConcreteObserver1 {
   notify(evt) {
     console.log('Первый конкретный наблюдатель получил уведомление:', evt);
@@ -59,20 +54,24 @@ class ConcretePublisher {
   }
 }
 
-// const publisher = new ConcretePublisher();
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// const observer1 = new ConcreteObserver1();
-// const observer2 = new ConcreteObserver2();
-// const observer3 = new ConcreteObserver3();
+const publisher = new ConcretePublisher();
 
-// publisher.subscribe(observer1).subscribe(observer2).subscribe(observer3);
+const observer1 = new ConcreteObserver1();
+const observer2 = new ConcreteObserver2();
+const observer3 = new ConcreteObserver3();
 
-// publisher.printObservers();
+publisher.subscribe(observer1).subscribe(observer2).subscribe(observer3);
 
-// publisher.notifyAll('ПРИВЕТ!');
+publisher.printObservers();
 
-// publisher.unsubscribe(observer2);
+publisher.notifyAll('ПРИВЕТ!');
 
-// publisher.printObservers();
+publisher.unsubscribe(observer2);
 
-// publisher.notifyAll('ПОКА!');
+publisher.printObservers();
+
+publisher.notifyAll('ПОКА!');

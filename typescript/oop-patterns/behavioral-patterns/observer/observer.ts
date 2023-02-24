@@ -1,17 +1,11 @@
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// OBSERVER (НАБЛЮДАТЕЛЬ)
-// ЦЕЛЬ: организовать систему оповещений о событиях, происходящих с каким-либо
-// объектом
-
-// Интерфейс наблюдателя содержит методы, которые дают каблюдателю
+// Интерфейс наблюдателя содержит методы, которые дают наблюдателю
 // возможность получать уведомления от субъекта
 interface Observer {
   notify(evt: string): void;
   getName(): string;
 }
 // Интерфейс Publisher определяет возможность подписываться и отписываться от
-// уведомлений от субъекта, а так же имеет метод для оповещения всех
+// уведомлений, а так же имеет метод для оповещения всех
 // текущих подписчиков субъекта
 interface Publisher {
   subscribe(obs: Observer): Publisher;
@@ -75,20 +69,24 @@ class ConcretePublisher implements Publisher {
   }
 }
 
-// const publisher = new ConcretePublisher();
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//------------------------------- Клиентский код -------------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// const observer1 = new ConcreteObserver1();
-// const observer2 = new ConcreteObserver2();
-// const observer3 = new ConcreteObserver3();
+const publisher = new ConcretePublisher();
 
-// publisher.subscribe(observer1).subscribe(observer2).subscribe(observer3);
+const observer1 = new ConcreteObserver1();
+const observer2 = new ConcreteObserver2();
+const observer3 = new ConcreteObserver3();
 
-// publisher.printObservers();
+publisher.subscribe(observer1).subscribe(observer2).subscribe(observer3);
 
-// publisher.notifyAll('ПРИВЕТ!');
+publisher.printObservers();
 
-// publisher.unsubscribe(observer2);
+publisher.notifyAll('ПРИВЕТ!');
 
-// publisher.printObservers();
+publisher.unsubscribe(observer2);
 
-// publisher.notifyAll('ПОКА!');
+publisher.printObservers();
+
+publisher.notifyAll('ПОКА!');
