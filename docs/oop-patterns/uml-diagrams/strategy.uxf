@@ -1,0 +1,38 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>100</x><y>200</y><w>190</w><h>210</h></coordinates><panel_attributes>Context
+--
+-strategy: Strategy
+--
++setStrategy(s: Strategy)
++operation()
+--
+Задачи:
+-- Хранит в себе ссылку на 
+объект-стратегию
+-- Вызывает методы на 
+объекте-стратегии, чтобы
+выполнять запросы клиента 
+-- По запросу меняет ссылку
+на другой объект-стратегию</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>60</y><w>190</w><h>150</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Strategy/
+--
+--
+/+operation()/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый конкретный
+класс-стратегия</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>60</y><w>200</w><h>110</h></coordinates><panel_attributes>Клиент
+--
+-- Создаёт экземпляр стратегии
+-- Создаёт экземпляр контекста
+и регистрирует стратегию 
+в контексте
+-- Работает с контекстом</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>320</y><w>190</w><h>90</h></coordinates><panel_attributes>ConcreteStrategy
+--
+--
++operation()
+--
+Задачи:
+--  Реализует бизнес-логику</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>200</y><w>100</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>80</y><w>110</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;150;50;150;50;10;90;10</additional_attributes></element></diagram>
