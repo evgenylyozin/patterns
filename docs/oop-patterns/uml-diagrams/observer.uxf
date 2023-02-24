@@ -1,0 +1,56 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>368</x><y>30</y><w>190</w><h>180</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Observable/
+--
+--
+/+addObserver(o: Observer)/
+/+removeObserver(o: Observer)/
+/+notifyObservers()/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый объект, за состоянием
+которого наблюдают</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>658</x><y>280</y><w>190</w><h>130</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Observer/
+--
+--
+/+handleEvent(evt)/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый наблюдатель</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>368</x><y>280</y><w>190</w><h>250</h></coordinates><panel_attributes>Observable
+--
+-observers: Observer[]
+--
++addObserver(o: Observer)
++removeObserver(o: Observer)
++notifyObservers()
+--
+Задачи:
+--  Хранить список ссылок на
+наблюдателей
+-- Добавлять наблюдателей в
+список по запросу
+-- Удалять наблюдателей из
+списка по запросу
+-- Оповещать наблюдателей
+об изменениях своего 
+состояния</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>658</x><y>110</y><w>190</w><h>100</h></coordinates><panel_attributes>Observer
+--
+--
++handleEvent(evt)
+--
+Задачи:
+--  Реагировать на события,
+посылаемые субъектом</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>448</x><y>200</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>200</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>548</x><y>320</y><w>130</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..*</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>78</x><y>30</y><w>190</w><h>120</h></coordinates><panel_attributes>Клиент
+--
+-- Создаёт экземпляр субъекта
+-- Создаёт экземпляр 
+наблюдателя
+-- Регистрирует наблюдателя в
+субъекте и работает с 
+субъектом</panel_attributes><additional_attributes></additional_attributes></element></diagram>
