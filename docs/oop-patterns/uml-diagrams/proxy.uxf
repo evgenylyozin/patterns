@@ -1,0 +1,44 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>370</x><y>50</y><w>190</w><h>150</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Service/
+--
+--
+/+operation()/
+--
+Задачи:
+--  Описывает операции, 
+которые должен реализовать
+каждый конкретный
+сервис и его заместитель</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>260</y><w>190</w><h>90</h></coordinates><panel_attributes>ConcreteService
+--
+--
++operation()
+--
+Задачи:
+--  Выполнение бизнес-логики
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>190</y><w>190</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>170;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>260</y><w>190</w><h>250</h></coordinates><panel_attributes>Proxy
+--
+-service: ConcreteService
+--
++Proxy(s: ConcreteService)
++operation()
++additionalOperation()
+--
+Задачи:
+-- Хранит в себе ссылку на
+конкретный сервис
+-- Выполняет дополнительные
+операции до или после вызова
+методов конкретного сервиса
+-- Вызывает методы 
+конкретного сервиса для 
+фактического выполнения
+бизнес-логики
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>190</y><w>180</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;70;160;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>50</y><w>190</w><h>110</h></coordinates><panel_attributes>Клиент
+--
+-- Создаёт конкретный сервис
+-- Создаёт заместителя и 
+регистрирует внутри него
+конкретный сервис
+-- Работает с заместителем</panel_attributes><additional_attributes></additional_attributes></element></diagram>
