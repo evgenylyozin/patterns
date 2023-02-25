@@ -73,10 +73,10 @@ func main() {
 	comp2 := concreteComponentB{}
 
 	fmt.Println(
-		"The client code works with all visitors via the base Visitor interface:")
+		"Клиент работает с каждым посетителем через базовый интерфейс посетителя")
 	visitor1 := &concreteVisitor1{}
 	visitor2 := &concreteVisitor2{}
-	fmt.Println("It allows the same client code to work with different types of visitors:")
+	fmt.Println("Что позволяет клиенту работать с различными посетителями:")
 
 	comp1.accept(visitor1)
 	comp1.accept(visitor2)

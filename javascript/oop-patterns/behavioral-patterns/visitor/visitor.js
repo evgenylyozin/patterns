@@ -51,14 +51,9 @@ class ConcreteVisitor2 {
 const comp1 = new ConcreteComponentA();
 const comp2 = new ConcreteComponentB();
 
-console.log(
-  'The client code works with all visitors via the base Visitor interface:'
-);
 const visitor1 = new ConcreteVisitor1();
 const visitor2 = new ConcreteVisitor2();
-console.log(
-  'It allows the same client code to work with different types of visitors:'
-);
+console.log('Что может работать с различными посетителями:');
 
 comp1.accept(visitor1);
 comp1.accept(visitor2);
