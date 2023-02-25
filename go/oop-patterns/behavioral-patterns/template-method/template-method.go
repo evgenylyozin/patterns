@@ -35,17 +35,17 @@ func (ac *abstractClass) templateMethod() {
 }
 
 func (ac *abstractClass) baseOperation1() {
-	fmt.Println("AbstractClass says: I am doing the bulk of the work")
+	fmt.Println("AbstractClass: Выполняю часть работы")
 }
 
 func (ac *abstractClass) baseOperation2() {
 	fmt.Println(
-		"AbstractClass says: But I let subclasses override some operations")
+		"AbstractClass: Но позволяю подклассам переопределять некоторые операции")
 }
 
 func (ac *abstractClass) baseOperation3() {
 	fmt.Println(
-		"AbstractClass says: But I am doing the bulk of the work anyway")
+		"AbstractClass: В любом случае часть работы на мне")
 }
 
 // Эти операции должны быть переопределены наследующими объектами
@@ -84,12 +84,12 @@ func (cc *concreteClass1) templateMethod() {
 }
 
 func (cc *concreteClass1) requiredOperation1() error {
-	fmt.Println("ConcreteClass1 says: Implemented Operation1")
+	fmt.Println("ConcreteClass1: Переопределил requiredOperation1")
 	return nil
 }
 
 func (cc *concreteClass1) requiredOperation2() error {
-	fmt.Println("ConcreteClass1 says: Implemented Operation2")
+	fmt.Println("ConcreteClass1: Переопределил requiredOperation2")
 	return nil
 }
 
@@ -116,17 +116,17 @@ func (cc *concreteClass2) templateMethod() {
 }
 
 func (cc *concreteClass2) requiredOperation1() error {
-	fmt.Println("ConcreteClass2 says: Implemented Operation1")
+	fmt.Println("ConcreteClass2: Переопределил requiredOperation1")
 	return nil
 }
 
 func (cc *concreteClass2) requiredOperation2() error {
-	fmt.Println("ConcreteClass2 says: Implemented Operation2")
+	fmt.Println("ConcreteClass2: Переопределил requiredOperation2")
 	return nil
 }
 
 func (cc *concreteClass2) hook1() {
-	fmt.Println("ConcreteClass2 says: Overridden Hook1")
+	fmt.Println("ConcreteClass2: Переопределил hook1")
 }
 
 // Интерфейс, который будет использоваться в клиентском коде
@@ -144,7 +144,7 @@ type iAbstractClass interface {
 }
 
 func clientCode(concreteClass iAbstractClass) {
-	fmt.Println("Same client code can work with different subclasses:")
+	fmt.Println("Клиент: работаю с конкретным классом")
 	concreteClass.templateMethod()
 }
 

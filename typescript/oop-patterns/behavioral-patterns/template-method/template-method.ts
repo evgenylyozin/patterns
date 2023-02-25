@@ -18,19 +18,17 @@ abstract class AbstractClass {
   }
 
   protected baseOperation1(): void {
-    console.log('AbstractClass says: I am doing the bulk of the work');
+    console.log('AbstractClass: Выполняю часть работы');
   }
 
   protected baseOperation2(): void {
     console.log(
-      'AbstractClass says: But I let subclasses override some operations'
+      'AbstractClass: Но позволяю подклассам переопределять некоторые операции'
     );
   }
 
   protected baseOperation3(): void {
-    console.log(
-      'AbstractClass says: But I am doing the bulk of the work anyway'
-    );
+    console.log('AbstractClass: В любом случае часть работы на мне');
   }
 
   // эти операции должны быть определены субклассами
@@ -44,34 +42,34 @@ abstract class AbstractClass {
 
 class ConcreteClass1 extends AbstractClass {
   protected requiredOperation1(): void {
-    console.log('ConcreteClass1 says: Implemented Operation1');
+    console.log('ConcreteClass1: Переопределил requiredOperation1');
   }
 
   protected requiredOperation2(): void {
-    console.log('ConcreteClass1 says: Implemented Operation2');
+    console.log('ConcreteClass1: Переопределил requiredOperation2');
   }
 }
 
 class ConcreteClass2 extends AbstractClass {
   protected requiredOperation1(): void {
-    console.log('ConcreteClass2 says: Implemented Operation1');
+    console.log('ConcreteClass2: Переопределил requiredOperation1');
   }
 
   protected requiredOperation2(): void {
-    console.log('ConcreteClass2 says: Implemented Operation2');
+    console.log('ConcreteClass2: Переопределил requiredOperation2');
   }
 
   protected hook1(): void {
-    console.log('ConcreteClass2 says: Overridden Hook1');
+    console.log('ConcreteClass2: Переопределил hook1');
   }
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //------------------------------- Клиентский код -------------------------------
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-console.log('Same client code can work with different subclasses:');
+console.log('Клиент: работаю с ConcreteClass1');
 new ConcreteClass1().templateMethod();
 console.log('');
 
-console.log('Same client code can work with different subclasses:');
+console.log('Клиент: работаю с ConcreteClass2');
 new ConcreteClass2().templateMethod();
