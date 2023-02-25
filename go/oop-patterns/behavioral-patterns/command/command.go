@@ -14,7 +14,9 @@ type simpleCommand struct {
 }
 
 func (c *simpleCommand) execute() {
-	fmt.Printf("SimpleCommand: See, I can do simple things like printing (%v)\n", c.payload)
+	fmt.Printf(
+		"Простая команда: Я могу делать простые вещи, например вывести это:  (%v)\n",
+		c.payload)
 }
 
 // Более сложные операции выполняются командами за счёт делегирования задач
@@ -29,7 +31,7 @@ type complexCommand struct {
 
 func (c *complexCommand) execute() {
 	fmt.Println(
-		"ComplexCommand: Complex stuff should be done by a receiver object.")
+		"Сложная команда: Сложные вещи должны исполняться объектом-получателем.")
 	c.receiver.doSomething(c.a)
 	c.receiver.doSomethingElse(c.b)
 }
@@ -40,10 +42,10 @@ type receiver struct {
 }
 
 func (r *receiver) doSomething(a string) {
-	fmt.Printf("Receiver: Working on (%v)\n", a)
+	fmt.Printf("Получатель: Работаю над (%v)\n", a)
 }
 func (r *receiver) doSomethingElse(b string) {
-	fmt.Printf("Receiver: Also working on (%v)\n", b)
+	fmt.Printf("Получатель: Так же работаю над (%v)\n", b)
 }
 
 // Инвокер - объект, который содержит в себе ссылки на команды
@@ -62,14 +64,16 @@ func (i *invoker) setOnFinish(command command) {
 }
 
 func (i *invoker) doSomethingImportant() {
-	fmt.Println("Invoker: Does anybody want something done before I begin?")
+	fmt.Println(`Инвокер: Если кто-то хочет сделать что-то перед тем,
+	 как я начну работу - самое время.`)
 	if i.onStart != nil {
 		i.onStart.execute()
 	}
 
-	fmt.Println("Invoker: ...doing something really important...")
+	fmt.Println("Инвокер: ...делаю что-то очень важное...")
 
-	fmt.Println("Invoker: Does anybody want something done after I finish?")
+	fmt.Println(`Инвокер: Если кто-то хочет сделать что-то после того, как я 
+	закончил свою работу - самое время.`)
 	if i.onFinish != nil {
 		i.onFinish.execute()
 	}
@@ -81,8 +85,11 @@ func (i *invoker) doSomethingImportant() {
 
 func main() {
 	receiver := receiver{}
-	command1 := simpleCommand{}
-	command2 := complexCommand{receiver: receiver, a: "Send email", b: "Send report"}
+	command1 := simpleCommand{payload: "ПРИВЕТ!"}
+	command2 := complexCommand{
+		receiver: receiver,
+		a:        "Отправить письмо",
+		b:        "Сохранить отчет"}
 	invoker := invoker{}
 	invoker.setOnStart(&command1)
 	invoker.setOnFinish(&command2)

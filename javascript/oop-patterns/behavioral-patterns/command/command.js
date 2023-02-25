@@ -9,7 +9,8 @@ class SimpleCommand {
 
   execute() {
     console.log(
-      `SimpleCommand: See, I can do simple things like printing (${this.payload})`
+      `Простая команда: Я могу делать простые вещи, например вывести это: \
+(${this.payload})`
     );
   }
 }
@@ -31,7 +32,7 @@ class ComplexCommand {
 
   execute() {
     console.log(
-      'ComplexCommand: Complex stuff should be done by a receiver object.'
+      'Сложная команда: Сложные вещи должны исполняться объектом-получателем.'
     );
     this.receiver.doSomething(this.a);
     this.receiver.doSomethingElse(this.b);
@@ -42,11 +43,11 @@ class ComplexCommand {
 // который знает как обработать запрос)
 class Receiver {
   doSomething(a) {
-    console.log(`Receiver: Working on (${a}.)`);
+    console.log(`Получатель: Работаю над (${a}.)`);
   }
 
   doSomethingElse(b) {
-    console.log(`Receiver: Also working on (${b}.)`);
+    console.log(`Получатель: Так же работаю над (${b}.)`);
   }
 }
 
@@ -67,14 +68,20 @@ class Invoker {
   }
 
   doSomethingImportant() {
-    console.log('Invoker: Does anybody want something done before I begin?');
+    console.log(
+      'Инвокер: Если кто-то хочет сделать что-то перед тем, как я \
+начну работу - самое время. '
+    );
     if (this.isCommand(this.onStart)) {
       this.onStart.execute();
     }
 
-    console.log('Invoker: ...doing something really important...');
+    console.log('Инвокер: ...делаю что-то очень важное...');
 
-    console.log('Invoker: Does anybody want something done after I finish?');
+    console.log(
+      'Инвокер: Если кто-то хочет сделать что-то после того, как я \
+закончил свою работу - самое время.'
+    );
     if (this.isCommand(this.onFinish)) {
       this.onFinish.execute();
     }
@@ -89,8 +96,10 @@ class Invoker {
 //------------------------------- Клиентский код -------------------------------
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const invoker = new Invoker();
-invoker.setOnStart(new SimpleCommand('Say Hi!'));
+invoker.setOnStart(new SimpleCommand('Скажи привет!'));
 const receiver = new Receiver();
-invoker.setOnFinish(new ComplexCommand(receiver, 'Send email', 'Save report'));
+invoker.setOnFinish(
+  new ComplexCommand(receiver, 'Отправить почту', 'Сохранить отчет')
+);
 
 invoker.doSomethingImportant();
