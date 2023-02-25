@@ -10,7 +10,7 @@ type context struct {
 }
 
 func (c *context) transitionTo(s iState) {
-	fmt.Println("Context: Transition to", s.getName())
+	fmt.Println("Контекст: Переход к", s.getName())
 	c.state = s
 	s.setContext(*c)
 }
@@ -54,13 +54,13 @@ type concreteStateA struct {
 }
 
 func (s *concreteStateA) handle1() {
-	fmt.Println("ConcreteStateA handles request1.")
-	fmt.Println("ConcreteStateA wants to change the state of the context.")
+	fmt.Println("ConcreteStateA обрабатывает request1.")
+	fmt.Println("ConcreteStateA хочет изменить состояние контекста.")
 	s.context.transitionTo(&concreteStateB{state{name: "concreteStateB"}})
 }
 
 func (s *concreteStateA) handle2() {
-	fmt.Println("ConcreteStateA handles request2.")
+	fmt.Println("ConcreteStateA обрабатывает request2.")
 
 }
 
@@ -69,12 +69,12 @@ type concreteStateB struct {
 }
 
 func (s *concreteStateB) handle1() {
-	fmt.Println("ConcreteStateB handles request2.")
+	fmt.Println("ConcreteStateB обрабатывает request2.")
 }
 
 func (s *concreteStateB) handle2() {
-	fmt.Println("ConcreteStateB handles request2.")
-	fmt.Println("ConcreteStateB wants to change the state of the context.")
+	fmt.Println("ConcreteStateB обрабатывает request2.")
+	fmt.Println("ConcreteStateB хочет изменить состояние контекста.")
 	s.context.transitionTo(&concreteStateA{state{name: "concreteStateA"}})
 }
 

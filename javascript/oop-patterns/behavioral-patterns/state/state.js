@@ -9,7 +9,7 @@ class Context {
   }
 
   transitionTo(state) {
-    console.log(`Context: Transition to ${state.constructor.name}.`);
+    console.log(`Контекст: Переход к ${state.constructor.name}.`);
     this.state = state;
     this.state.setContext(this);
   }
@@ -40,24 +40,24 @@ class State {
 
 class ConcreteStateA extends State {
   handle1() {
-    console.log('ConcreteStateA handles request1.');
-    console.log('ConcreteStateA wants to change the state of the context.');
+    console.log('ConcreteStateA обрабатывает request1.');
+    console.log('ConcreteStateA хочет изменить состояние контекста.');
     this.context ? this.context.transitionTo(new ConcreteStateB()) : null;
   }
 
   handle2() {
-    console.log('ConcreteStateA handles request2.');
+    console.log('ConcreteStateA обрабатывает request2.');
   }
 }
 
 class ConcreteStateB extends State {
   handle1() {
-    console.log('ConcreteStateB handles request1.');
+    console.log('ConcreteStateB обрабатывает request1.');
   }
 
   handle2() {
-    console.log('ConcreteStateB handles request2.');
-    console.log('ConcreteStateB wants to change the state of the context.');
+    console.log('ConcreteStateB обрабатывает request2.');
+    console.log('ConcreteStateB хочет изменить состояние контекста.');
     this.context ? this.context.transitionTo(new ConcreteStateA()) : null;
   }
 }
