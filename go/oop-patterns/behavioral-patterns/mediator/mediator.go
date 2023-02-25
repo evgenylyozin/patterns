@@ -16,13 +16,15 @@ type concreteMediator struct {
 }
 
 func (m *concreteMediator) notify(sender any, event string) {
-	if event == "A" {
-		fmt.Println("Mediator reacts on A and triggers following operations:")
+	if event == "А" {
+		fmt.Println(`Посредник реагирует на событие "А" и задействует 
+следующие операции:`)
 		m.component2.doC()
 	}
 
-	if event == "D" {
-		fmt.Println("Mediator reacts on D and triggers following operations:")
+	if event == "Г" {
+		fmt.Println(`Посредник реагирует на событие "Г" и задействует 
+следующие операции:`)
 		m.component1.doB()
 		m.component2.doC()
 	}
@@ -42,13 +44,13 @@ type component1 struct {
 }
 
 func (c *component1) doA() {
-	fmt.Println("Component 1 does A.")
-	c.mediator.notify(c, "A")
+	fmt.Println("Компонент 1 делает А.")
+	c.mediator.notify(c, "А")
 }
 
 func (c *component1) doB() {
-	fmt.Println("Component 1 does B.")
-	c.mediator.notify(c, "B")
+	fmt.Println("Компонент 1 делает Б.")
+	c.mediator.notify(c, "Б")
 }
 
 type component2 struct {
@@ -56,13 +58,13 @@ type component2 struct {
 }
 
 func (c *component2) doC() {
-	fmt.Println("Component 2 does C.")
-	c.mediator.notify(c, "C")
+	fmt.Println("Компонент 2 делает В.")
+	c.mediator.notify(c, "В")
 }
 
 func (c *component2) doD() {
-	fmt.Println("Component 2 does D.")
-	c.mediator.notify(c, "D")
+	fmt.Println("Компонент 2 делает Г.")
+	c.mediator.notify(c, "Г")
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,10 +78,10 @@ func main() {
 	mediator.component1 = c1
 	mediator.component2 = c2
 
-	fmt.Println("Client triggers operation A.")
+	fmt.Println("Клиент задействует операцию А.")
 	c1.doA()
 
 	fmt.Println("")
-	fmt.Println("Client triggers operation D.")
+	fmt.Println("Клиент задействует операцию Г.")
 	c2.doD()
 }

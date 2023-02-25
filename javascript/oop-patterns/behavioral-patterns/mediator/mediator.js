@@ -13,13 +13,15 @@ class ConcreteMediator {
   // Метод notify на посреднике принимает события и вызывает методы на
   // нужных объектах в соответствии с ними
   notify(sender, event) {
-    if (event === 'A') {
-      console.log('Mediator reacts on A and triggers following operations:');
+    if (event === 'А') {
+      console.log(`Посредник реагирует на событие "А" и задействует 
+следующие операции:`);
       this.component2.doC();
     }
 
-    if (event === 'D') {
-      console.log('Mediator reacts on D and triggers following operations:');
+    if (event === 'Г') {
+      console.log(`Посредник реагирует на событие "Г" и задействует 
+следующие операции:`);
       this.component1.doB();
       this.component2.doC();
     }
@@ -45,25 +47,25 @@ class BaseComponent {
 // конкретного посредника)
 class Component1 extends BaseComponent {
   doA() {
-    console.log('Component 1 does A.');
-    this.mediator.notify(this, 'A');
+    console.log('Компонент 1 делает А.');
+    this.mediator.notify(this, 'А');
   }
 
   doB() {
-    console.log('Component 1 does B.');
-    this.mediator.notify(this, 'B');
+    console.log('Компонент 1 делает Б.');
+    this.mediator.notify(this, 'Б');
   }
 }
 
 class Component2 extends BaseComponent {
   doC() {
-    console.log('Component 2 does C.');
-    this.mediator.notify(this, 'C');
+    console.log('Компонент 2 делает В.');
+    this.mediator.notify(this, 'В');
   }
 
   doD() {
-    console.log('Component 2 does D.');
-    this.mediator.notify(this, 'D');
+    console.log('Компонент 2 делает Г.');
+    this.mediator.notify(this, 'Г');
   }
 }
 
@@ -74,9 +76,9 @@ const c1 = new Component1();
 const c2 = new Component2();
 const mediator = new ConcreteMediator(c1, c2);
 
-console.log('Client triggers operation A.');
+console.log('Клиент задействует операцию А.');
 c1.doA();
 
 console.log('');
-console.log('Client triggers operation D.');
+console.log('Клиент задействует операцию Г.');
 c2.doD();
