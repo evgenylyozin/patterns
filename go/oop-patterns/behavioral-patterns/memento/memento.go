@@ -14,9 +14,9 @@ type originator struct {
 }
 
 func (o *originator) doSomething() {
-	fmt.Println("Originator: I'm doing something important.")
+	fmt.Println("Источник: Делаю что-то важное.")
 	o.state = o.generateRandomString(30)
-	fmt.Printf("Originator: and my state has changed to: %v\n", o.state)
+	fmt.Printf("Источник: моё состояние изменилось на:  %v\n", o.state)
 }
 
 func (o *originator) generateRandomString(length int) string {
@@ -35,7 +35,7 @@ func (o *originator) save() memento {
 
 func (o *originator) restore(memento memento) {
 	o.state = memento.getState()
-	fmt.Printf("Originator: My state has changed to: %v\n", o.state)
+	fmt.Printf("Источник: моё состояние изменилось на:  %v\n", o.state)
 }
 
 // Интерфейс снимка должен давать возможность получить данные о состоянии
@@ -77,7 +77,7 @@ type caretaker struct {
 }
 
 func (c *caretaker) backup() {
-	fmt.Println("\nCaretaker: Saving Originator's state...")
+	fmt.Println("\nСмотритель: Сохраняю состояние источника...")
 	c.mementos = append(c.mementos, c.originator.save())
 }
 
@@ -89,12 +89,12 @@ func (c *caretaker) undo() {
 	memento := c.mementos[length-1]
 	c.mementos = c.mementos[:length-1]
 
-	fmt.Printf("Caretaker: Restoring state to: %v\n", memento.getName())
+	fmt.Printf("Смотритель: восстанавливаю состояние источника до: %v\n", memento.getName())
 	c.originator.restore(memento)
 }
 
 func (c *caretaker) showHistory() {
-	fmt.Println("Caretaker: Here's the list of mementos:")
+	fmt.Println("Смотритель: вот весь текущий список объектов-снимков:")
 	for _, memento := range c.mementos {
 		fmt.Println(memento.getName())
 	}
@@ -104,7 +104,7 @@ func (c *caretaker) showHistory() {
 // ------------------------------- Клиентский код -------------------------------
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 func main() {
-	originator := &originator{state: "Super-duper-super-puper-super."}
+	originator := &originator{state: "Изначальное состояние"}
 	caretaker := caretaker{originator: originator}
 
 	caretaker.backup()
@@ -119,9 +119,9 @@ func main() {
 	fmt.Println("")
 	caretaker.showHistory()
 
-	fmt.Println("\nClient: Now, let's rollback!")
+	fmt.Println("\nКлиент: откатываю состояние")
 	caretaker.undo()
 
-	fmt.Println("\nClient: Once more!")
+	fmt.Println("\nКлиент: откатываю ещё раз")
 	caretaker.undo()
 }

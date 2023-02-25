@@ -5,12 +5,12 @@ class Originator {
   state;
   constructor(state) {
     this.state = state;
-    console.log(`Originator: My initial state is: ${state}`);
+    console.log(`Источник: Моё изначальное состояние: ${state}`);
   }
   doSomething() {
-    console.log("Originator: I'm doing something important.");
+    console.log('Источник: Делаю что-то важное.');
     this.state = this.generateRandomString(30);
-    console.log(`Originator: and my state has changed to: ${this.state}`);
+    console.log(`Источник: моё состояние изменилось на: ${this.state}`);
   }
 
   generateRandomString(length = 10) {
@@ -28,7 +28,7 @@ class Originator {
 
   restore(memento) {
     this.state = memento.getState();
-    console.log(`Originator: My state has changed to: ${this.state}`);
+    console.log(`Источник: моё состояние изменилось на: ${this.state}`);
   }
 }
 
@@ -68,7 +68,7 @@ class Caretaker {
   }
 
   backup() {
-    console.log("\nCaretaker: Saving Originator's state...");
+    console.log('\nСмотритель: Сохраняю состояние источника...');
     this.mementos.push(this.originator.save());
   }
 
@@ -79,17 +79,19 @@ class Caretaker {
     const memento = this.mementos.pop();
 
     if (memento) {
-      console.log(`Caretaker: Restoring state to: ${memento.getName()}`);
+      console.log(
+        `Смотритель: восстанавливаю состояние источника до: ${memento.getName()}`
+      );
       this.originator.restore(memento);
     } else {
       throw new Error(
-        'Отсутствуют объекты мементо для восстановления состояния'
+        'Отсутствуют объекты снимков для восстановления состояния'
       );
     }
   }
 
   showHistory() {
-    console.log("Caretaker: Here's the list of mementos:");
+    console.log('Смотритель: вот весь текущий список объектов-снимков:');
     for (const memento of this.mementos) {
       console.log(memento.getName());
     }
@@ -99,7 +101,7 @@ class Caretaker {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //------------------------------- Клиентский код -------------------------------
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const originator = new Originator('Super-duper-super-puper-super.');
+const originator = new Originator('Изначальное состояние');
 const caretaker = new Caretaker(originator);
 
 caretaker.backup();
@@ -114,8 +116,8 @@ originator.doSomething();
 console.log('');
 caretaker.showHistory();
 
-console.log("\nClient: Now, let's rollback!\n");
+console.log('\nКлиент: откатываю состояние\n');
 caretaker.undo();
 
-console.log('\nClient: Once more!\n');
+console.log('\nКлиент: откатываю ещё раз\n');
 caretaker.undo();
