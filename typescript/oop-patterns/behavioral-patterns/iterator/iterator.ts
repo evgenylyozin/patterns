@@ -87,19 +87,19 @@ class WordsCollection implements Aggregator {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const collection = new WordsCollection();
-collection.addItem('First');
-collection.addItem('Second');
-collection.addItem('Third');
+collection.addItem('Первый');
+collection.addItem('Второй');
+collection.addItem('Третий');
 
 const iterator = collection.getIterator();
 
-console.log('Straight traversal:');
+console.log('Проход по порядку:');
 while (iterator.valid()) {
   console.log(iterator.next());
 }
 
 console.log('');
-console.log('Reverse traversal:');
+console.log('Проход с конца:');
 const reverseIterator = collection.getReverseIterator();
 while (reverseIterator.valid()) {
   console.log(reverseIterator.next());

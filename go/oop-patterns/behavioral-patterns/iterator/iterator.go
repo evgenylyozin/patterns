@@ -86,18 +86,18 @@ func (c *wordsCollection) getReverseIterator() iIterator[string] {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 func main() {
 	collection := wordsCollection{}
-	collection.addItem("First")
-	collection.addItem("Second")
-	collection.addItem("Third")
+	collection.addItem("Первый")
+	collection.addItem("Второй")
+	collection.addItem("Третий")
 
 	iterator := collection.getIterator()
 
-	fmt.Println("Straight traversal:")
+	fmt.Println("Проход по порядку:")
 	for iterator.valid() {
 		fmt.Println(iterator.next())
 	}
 
-	fmt.Println("Reverse traversal:")
+	fmt.Println("Проход с конца:")
 	reverseIterator := collection.getReverseIterator()
 	for reverseIterator.valid() {
 		fmt.Println(reverseIterator.next())
