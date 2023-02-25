@@ -20,7 +20,7 @@ func (c *strategyContext) setStrategy(strategy iStrategy) {
 // этом не имея методов для её непосредственного решения внутри себя
 func (c *strategyContext) doSomeBusinessLogic() {
 
-	fmt.Println("Context: Sorting data using the strategy (not sure how it'll do it)")
+	fmt.Println("Контекст: Сортирую данные, используя стратегию")
 	result := c.strategy.doAlgorithm([]string{"a", "b", "c", "d", "e"})
 	fmt.Println(strings.Join(result, ","))
 }
@@ -57,12 +57,12 @@ func (s *concreteStrategyB) doAlgorithm(data []string) []string {
 
 func main() {
 	context := strategyContext{strategy: &concreteStrategyA{}}
-	fmt.Println("Client: Strategy is set to normal sorting.")
+	fmt.Println("Клиент: Установлена стратегия сортировки по возрастанию")
 	context.doSomeBusinessLogic()
 
 	fmt.Println("")
 
-	fmt.Println("Client: Strategy is set to reverse sorting.")
+	fmt.Println("Клиент: Установлена стратегия сортировки по убыванию")
 	context.setStrategy(&concreteStrategyB{})
 	context.doSomeBusinessLogic()
 }

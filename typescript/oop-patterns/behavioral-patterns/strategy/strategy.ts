@@ -14,9 +14,7 @@ class StrategyContext {
   // Контекст передаёт выполнение задачи в конкретный объект стратегии, при
   // этом не имея методов для её непосредственного решения внутри себя
   public doSomeBusinessLogic(): void {
-    console.log(
-      "Context: Sorting data using the strategy (not sure how it'll do it)"
-    );
+    console.log('Контекст: Сортирую данные, используя стратегию');
     const result = this.strategy.doAlgorithm(['a', 'b', 'c', 'e', 'd']);
     console.log(result.join(','));
   }
@@ -47,11 +45,11 @@ class ConcreteStrategyB implements iStrategy {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const strategyContext = new StrategyContext(new ConcreteStrategyA());
-console.log('Client: Strategy is set to normal sorting.');
+console.log('Клиент: Установлена стратегия сортировки по возрастанию');
 strategyContext.doSomeBusinessLogic();
 
 console.log('');
 
-console.log('Client: Strategy is set to reverse sorting.');
+console.log('Клиент: Установлена стратегия сортировки по убыванию');
 strategyContext.setStrategy(new ConcreteStrategyB());
 strategyContext.doSomeBusinessLogic();
