@@ -2,16 +2,17 @@ package main
 
 import "fmt"
 
-type singltn struct{ name string }
+// Singleton - гипотетический объект-одиночка
+type Singleton struct{ name string }
 
 // IIFE с возвращаемым значением
 func main() {
-  singleton := func(str string) singltn {
-	fmt.Println(str, "от IIFE, создающей синглтон")
-	fmt.Println("Создаю Синглтон")
-	return singltn{
-		name: "Синглтон",
-	}
-}("Привет")
-fmt.Println("Меня зовут", singleton.name)
+	singleton := func(str string) Singleton {
+		fmt.Println(str, "от IIFE, создающей одиночку")
+		fmt.Println("Создаю одиночку")
+		return Singleton{
+			name: "Одиночка",
+		}
+	}("Привет")
+	fmt.Println("Меня зовут", singleton.name)
 }

@@ -1,9 +1,9 @@
 // IIFE с возвращаемым значением
 const singleton = ((str) => {
-  console.log(`${str} от IIFE, создающей синглтон`);
-  console.log('Создаю Синглтон');
+  console.log(`${str} от IIFE, создающей одиночку`);
+  console.log('Создаю одиночку');
   return {
-    name: 'Синглтон',
+    name: 'Одиночка',
   };
 })('Привет');
 
