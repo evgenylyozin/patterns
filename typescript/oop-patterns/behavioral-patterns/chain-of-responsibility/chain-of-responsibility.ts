@@ -28,8 +28,8 @@ abstract class AbstractHandler implements Handler {
 // по цепочке обработчиков
 class MonkeyHandler extends AbstractHandler {
   public handle(request: string): string | null {
-    if (request === 'Banana') {
-      return `Monkey: I'll eat the ${request}.`;
+    if (request === 'Банан') {
+      return `Обезьяна: Я съем ${request}.`;
     }
     return super.handle(request);
   }
@@ -37,8 +37,8 @@ class MonkeyHandler extends AbstractHandler {
 
 class SquirrelHandler extends AbstractHandler {
   public handle(request: string): string | null {
-    if (request === 'Nut') {
-      return `Squirrel: I'll eat the ${request}.`;
+    if (request === 'Орех') {
+      return `Белка: Я съем ${request}.`;
     }
     return super.handle(request);
   }
@@ -46,8 +46,8 @@ class SquirrelHandler extends AbstractHandler {
 
 class DogHandler extends AbstractHandler {
   public handle(request: string): string | null {
-    if (request === 'MeatBall') {
-      return `Dog: I'll eat the ${request}.`;
+    if (request === 'Мясо') {
+      return `Собака: Я съем ${request}.`;
     }
     return super.handle(request);
   }
@@ -65,15 +65,15 @@ monkey.setNext(squirrel).setNext(dog);
 
 const handler = monkey;
 
-const foods = ['Nut', 'Banana', 'Cup of coffee'];
+const foods = ['Орех', 'Банан', 'Кофе'];
 
 for (const food of foods) {
-  console.log(`Client: Who wants a ${food}?`);
+  console.log(`Клиент: Кто хочет ${food}?`);
 
   const result = handler.handle(food);
   if (result) {
     console.log(`  ${result}`);
   } else {
-    console.log(`  ${food} was left untouched.`);
+    console.log(`  ${food} никто не захотел.`);
   }
 }

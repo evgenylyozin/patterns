@@ -6,7 +6,6 @@ import "fmt"
 // и непосредственно обработки запроса
 type handler interface {
 	setNext(handler handler) handler
-
 	handle(request string) string
 }
 
@@ -35,8 +34,8 @@ type monkeyHandler struct {
 }
 
 func (h *monkeyHandler) handle(request string) string {
-	if request == "Banana" {
-		return "Monkey: I'll eat the Banana."
+	if request == "Банан" {
+		return "Обезьяна: Я съем Банан."
 	}
 	return h.abstractHandler.handle(request)
 }
@@ -46,8 +45,8 @@ type squirrelHandler struct {
 }
 
 func (h *squirrelHandler) handle(request string) string {
-	if request == "Nut" {
-		return "Squirrel: I'll eat the Nut."
+	if request == "Орех" {
+		return "Белка: Я съем Орех."
 	}
 	return h.abstractHandler.handle(request)
 }
@@ -57,8 +56,8 @@ type dogHandler struct {
 }
 
 func (h *dogHandler) handle(request string) string {
-	if request == "MeatBall" {
-		return "Dog: I'll eat the MeatBall."
+	if request == "Мясо" {
+		return "Собака: Я съем Мясо."
 	}
 
 	return h.abstractHandler.handle(request)
@@ -77,16 +76,16 @@ func main() {
 
 	handler := monkey
 
-	foods := []string{"Nut", "Banana", "Cup of coffee"}
+	foods := []string{"Орех", "Банан", "Кофе"}
 
 	for _, food := range foods {
-		fmt.Printf("Client: Who wants a %v?\n", food)
+		fmt.Printf("Клиент: кто хочет %v?\n", food)
 
 		result := handler.handle(food)
 		if result != "" {
 			fmt.Println(result)
 		} else {
-			fmt.Printf("%v was left untouched.\n", food)
+			fmt.Printf("%v никто не захотел.\n", food)
 		}
 	}
 }
