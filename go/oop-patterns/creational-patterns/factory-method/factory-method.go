@@ -11,7 +11,7 @@ type blackCat struct {
 }
 
 func (c *blackCat) meow() {
-	fmt.Println("Meow, my color is", c.color)
+	fmt.Println("Мяу, мой цвет:", c.color)
 }
 
 type whiteCat struct {
@@ -19,7 +19,7 @@ type whiteCat struct {
 }
 
 func (c *whiteCat) meow() {
-	fmt.Println("Meow, my color is", c.color)
+	fmt.Println("Мяу, мой цвет:", c.color)
 }
 
 type meower interface {
@@ -27,31 +27,31 @@ type meower interface {
 }
 
 func newBlackCat() *blackCat {
-	return &blackCat{color: "black"}
+	return &blackCat{color: "черный"}
 }
 
 func newWhiteCat() *whiteCat {
-	return &whiteCat{color: "white"}
+	return &whiteCat{color: "белый"}
 }
 
 func catsFactory(t string) (meower, error) {
 	switch t {
-	case "black":
+	case "черный":
 		return newBlackCat(), nil
-	case "white":
+	case "белый":
 		return newWhiteCat(), nil
 	default:
-		return nil, fmt.Errorf("Unknown cat type")
+		return nil, fmt.Errorf("Неизвестный тип кошки")
 	}
 }
 
 func main() {
-	whiteCat, error := catsFactory("white")
+	whiteCat, error := catsFactory("белый")
 
 	if error == nil {
 		whiteCat.meow()
 	}
-	blackCat, error := catsFactory("black")
+	blackCat, error := catsFactory("черный")
 	if error == nil {
 		blackCat.meow()
 	}

@@ -2,8 +2,7 @@
 //класса Продукт. Подклассы Создателя обычно предоставляют реализацию этого
 //метода.
 class Creator {
-  factoryMethod();
-
+  factoryMethod() {}
   // Также заметьте, что, несмотря на название, основная обязанность Создателя
   // не заключается в создании продуктов. Обычно он содержит некоторую базовую
   // бизнес-логику, которая основана на объектах Продуктов, возвращаемых
@@ -13,7 +12,8 @@ class Creator {
     // Вызываем фабричный метод, чтобы получить объект-продукт.
     const product = this.factoryMethod();
     // Далее, работаем с этим продуктом.
-    return `Creator: The same creator's code has just worked with ${product.operation()}`;
+    return `Создатель: Один и тот же код создателя отработал с новым 
+    продуктом - ${product.operation()}`;
   }
 }
 
@@ -33,13 +33,13 @@ class ConcreteCreator2 extends Creator {
 
 class ConcreteProduct1 {
   operation() {
-    return '{Result of the ConcreteProduct1}';
+    return '{Результат операции конкретного продукта типа 1}';
   }
 }
 
-class ConcreteProduct2  {
+class ConcreteProduct2 {
   operation() {
-    return '{Result of the ConcreteProduct2}';
+    return '{Результат операции конкретного продукта типа 2}';
   }
 }
 
@@ -47,17 +47,5 @@ class ConcreteProduct2  {
 //------------------------------- Клиентский код -------------------------------
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-console.log('App: Launched with the ConcreteCreator1.');
-
-console.log(
-  "Client: I'm not aware of the creator's class, but it still works."
-);
 console.log(new ConcreteCreator1().someOperation());
-
-console.log('');
-
-console.log('App: Launched with the ConcreteCreator2.');
-console.log(
-  "Client: I'm not aware of the creator's class, but it still works."
-);
 console.log(new ConcreteCreator2().someOperation());
