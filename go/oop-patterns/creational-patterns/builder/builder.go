@@ -27,11 +27,11 @@ func newNormalBuilder() *normalBuilder {
 }
 
 func (b *normalBuilder) setWindowType() {
-	b.house.windowType = "Wooden Window"
+	b.house.windowType = "Деревянное окно"
 }
 
 func (b *normalBuilder) setDoorType() {
-	b.house.doorType = "Wooden Door"
+	b.house.doorType = "Деревянная дверь"
 }
 
 func (b *normalBuilder) setNumFloor() {
@@ -51,11 +51,11 @@ func newIglooBuilder() *iglooBuilder {
 }
 
 func (b *iglooBuilder) setWindowType() {
-	b.house.windowType = "Snow Window"
+	b.house.windowType = "Ледяное окно"
 }
 
 func (b *iglooBuilder) setDoorType() {
-	b.house.doorType = "Snow Door"
+	b.house.doorType = "Ледяная дверь"
 }
 
 func (b *iglooBuilder) setNumFloor() {
@@ -68,11 +68,11 @@ func (b *iglooBuilder) getHouse() *house {
 
 // Вспомогательная функция для получения нужного типа строителя
 func getBuilder(builderType string) iHouseBuilder {
-	if builderType == "normal" {
+	if builderType == "обычный" {
 		return newNormalBuilder()
 	}
 
-	if builderType == "igloo" {
+	if builderType == "иглу" {
 		return newIglooBuilder()
 	}
 	return nil
@@ -106,20 +106,20 @@ func (d *director) buildHouse() *house {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 func main() {
-	normalBuilder := getBuilder("normal")
-	iglooBuilder := getBuilder("igloo")
+	normalBuilder := getBuilder("обычный")
+	iglooBuilder := getBuilder("иглу")
 
 	director := newDirector(normalBuilder)
 	normalHouse := director.buildHouse()
 
-	fmt.Printf("Normal House Door Type: %s\n", normalHouse.doorType)
-	fmt.Printf("Normal House Window Type: %s\n", normalHouse.windowType)
-	fmt.Printf("Normal House Num Floor: %d\n", normalHouse.floor)
+	fmt.Printf("Тип двери обычного дома: %s\n", normalHouse.doorType)
+	fmt.Printf("Тип окна обычного дома: %s\n", normalHouse.windowType)
+	fmt.Printf("Количество этажей обычного дома: %d\n", normalHouse.floor)
 
 	director.setBuilder(iglooBuilder)
 	iglooHouse := director.buildHouse()
 
-	fmt.Printf("\nIgloo House Door Type: %s\n", iglooHouse.doorType)
-	fmt.Printf("Igloo House Window Type: %s\n", iglooHouse.windowType)
-	fmt.Printf("Igloo House Num Floor: %d\n", iglooHouse.floor)
+	fmt.Printf("\nТип двери иглу: %s\n", iglooHouse.doorType)
+	fmt.Printf("Тип окна иглу: %s\n", iglooHouse.windowType)
+	fmt.Printf("Количество этажей иглу: %d\n", iglooHouse.floor)
 }

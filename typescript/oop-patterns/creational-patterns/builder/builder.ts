@@ -15,15 +15,15 @@ class ConcreteBuilder1 implements Builder {
   }
 
   public producePartA(): void {
-    this.product.parts.push('PartA1');
+    this.product.parts.push('Часть А1');
   }
 
   public producePartB(): void {
-    this.product.parts.push('PartB1');
+    this.product.parts.push('Часть Б1');
   }
 
   public producePartC(): void {
-    this.product.parts.push('PartC1');
+    this.product.parts.push('Часть В1');
   }
 
   // Каждый строитель должен иметь метод для возврата созданного продукта
@@ -42,7 +42,7 @@ class Product1 {
   public parts: string[] = [];
 
   listParts() {
-    console.log(`Product parts: ${this.parts.join(', ')}\n`);
+    console.log(`Части продукта: ${this.parts.join(', ')}\n`);
   }
 }
 
@@ -64,7 +64,7 @@ class Director {
   public buildMinimalViableProduct(): void {
     if (!this.builder) {
       throw new Error(
-        'Builder was not set, call setBuilder on the Director object'
+        'Объект строитель не установлен, вызовите метод setBuilder на объекте-директоре'
       );
     }
     this.builder.producePartA();
@@ -73,7 +73,7 @@ class Director {
   public buildFullFeaturedProduct(): void {
     if (!this.builder) {
       throw new Error(
-        'Builder was not set, call setBuilder on the Director object'
+        'Объект строитель не установлен, вызовите метод setBuilder на объекте-директоре'
       );
     }
     this.builder.producePartA();
@@ -90,16 +90,16 @@ const director = new Director();
 const builder = new ConcreteBuilder1();
 director.setBuilder(builder);
 
-console.log('Standard basic product:');
+console.log('Продукт в минимальной комплектации:');
 director.buildMinimalViableProduct();
 builder.getProduct().listParts();
 
-console.log('Standard full featured product:');
+console.log('Продукт в полной комплектации:');
 director.buildFullFeaturedProduct();
 builder.getProduct().listParts();
 
 // строителя можно использовать и без директора
-console.log('Custom product:');
+console.log('Уникально настроенный продукт:');
 builder.producePartA();
 builder.producePartC();
 builder.getProduct().listParts();
