@@ -10,7 +10,7 @@ type abstractBridge struct {
 
 func (b *abstractBridge) operation() string {
 	result := b.implementation.operationImplementation()
-	return fmt.Sprintf("Abstraction: Base operation with:\n%v", result)
+	return fmt.Sprintf("Абстракция: Базовая операция вместе с конкретной реализацией:\n%v", result)
 }
 
 func newAbstractBridge(i implementation) *abstractBridge {
@@ -24,7 +24,8 @@ type extendedAbstractBridge struct {
 
 func (b *extendedAbstractBridge) operation() string {
 	result := b.implementation.operationImplementation()
-	return fmt.Sprintf("ExtendedAbstraction: Extended operation with:\n%v", result)
+	return fmt.Sprintf(`Расширенная абстракция: Расширенная операция вместе с 
+конкретной реализацией: %v`, result)
 }
 
 func newExtendedAbstractBridge(i implementation) *extendedAbstractBridge {
@@ -44,14 +45,14 @@ type concreteImplementationA struct {
 }
 
 func (i *concreteImplementationA) operationImplementation() string {
-	return "ConcreteImplementationA: Here's the result on the platform A."
+	return "Конкретная реализация типа \"А\": Результат на платформе \"А\"."
 }
 
 type concreteImplementationB struct {
 }
 
 func (i *concreteImplementationB) operationImplementation() string {
-	return "ConcreteImplementationB: Here's the result on the platform B."
+	return "Конкретная реализация типа \"Б\": Результат на платформе \"Б\"."
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

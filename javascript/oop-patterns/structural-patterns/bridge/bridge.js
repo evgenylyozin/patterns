@@ -9,7 +9,7 @@ class AbstractBridge {
 
   operation() {
     const result = this.implementation.operationImplementation();
-    return `Abstraction: Base operation with:\n${result}`;
+    return `Абстракция: Базовая операция вместе с конкретной реализацией:\n${result}`;
   }
 }
 
@@ -17,7 +17,8 @@ class AbstractBridge {
 class ExtendedAbstractBridge extends AbstractBridge {
   operation() {
     const result = this.implementation.operationImplementation();
-    return `ExtendedAbstraction: Extended operation with:\n${result}`;
+    return `Расширенная Абстракция: Расширенная операция вместе с конкретной 
+реализацией:\n${result}`;
   }
 }
 
@@ -27,13 +28,13 @@ class ExtendedAbstractBridge extends AbstractBridge {
 // использовать разные внешние API объекты и т.д. внутри разных реализаций
 class ConcreteImplementationA {
   operationImplementation() {
-    return "ConcreteImplementationA: Here's the result on the platform A.";
+    return 'Конкретная реализация типа "А": Результат на платформе "А".';
   }
 }
 
 class ConcreteImplementationB {
   operationImplementation() {
-    return "ConcreteImplementationB: Here's the result on the platform B.";
+    return 'Конкретная реализация типа "Б": Результат на платформе "Б".';
   }
 }
 
