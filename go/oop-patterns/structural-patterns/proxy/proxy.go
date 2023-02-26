@@ -15,7 +15,7 @@ type realSubject struct {
 }
 
 func (s *realSubject) request() {
-	fmt.Println("RealSubject: Handling request.")
+	fmt.Println("Реальный объект: Работаю с запросом.")
 }
 
 // Прокси имеет тот же интерфейс, что и реальный объект
@@ -24,12 +24,12 @@ type proxy struct {
 }
 
 func (p *proxy) checkAccess() bool {
-	fmt.Println("Proxy: Checking access prior to firing a real request.")
+	fmt.Println("Заместитель: Проверяю права доступа перед тем, как обработать запрос.")
 	return true
 }
 
 func (p *proxy) logAccess() {
-	fmt.Println("Proxy: Logging the time of request.")
+	fmt.Println("Заместитель: Записываю время и дату запроса.")
 }
 
 func (p *proxy) request() {

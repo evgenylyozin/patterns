@@ -3,7 +3,7 @@
 // быть слабо защищён и т.п.
 class RealSubject {
   request() {
-    console.log('RealSubject: Handling request.');
+    console.log('Реальный объект: Работаю с запросом.');
   }
 }
 
@@ -23,12 +23,12 @@ class ProxyObj {
   }
 
   checkAccess() {
-    console.log('Proxy: Checking access prior to firing a real request.');
+    console.log('Заместитель: Проверяю права доступа перед тем, как обработать запрос.');
     return true;
   }
 
   logAccess() {
-    console.log('Proxy: Logging the time of request.');
+    console.log('Заместитель: Записываю время и дату запроса.');
   }
 }
 

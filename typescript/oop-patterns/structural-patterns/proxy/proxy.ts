@@ -9,7 +9,7 @@ interface Subject {
 // быть слабо защищён и т.п.
 class RealSubject implements Subject {
   public request(): void {
-    console.log('RealSubject: Handling request.');
+    console.log('Реальный объект: Работаю с запросом.');
   }
 }
 
@@ -29,12 +29,14 @@ class ProxyObj implements Subject {
   }
 
   private checkAccess(): boolean {
-    console.log('Proxy: Checking access prior to firing a real request.');
+    console.log(
+      'Заместитель: Проверяю права доступа перед тем, как обработать запрос.'
+    );
     return true;
   }
 
   private logAccess(): void {
-    console.log('Proxy: Logging the time of request.');
+    console.log('Заместитель: Записываю время и дату запроса.');
   }
 }
 
