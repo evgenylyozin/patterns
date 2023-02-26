@@ -18,7 +18,7 @@ class SingletonClass {
 const Singleton = (() => {
   let instance = null;
   const createInstance = () => {
-    return { name: 'DB object' };
+    return { name: 'Объект базы данных' };
   };
   return {
     instantiate: () => {
@@ -44,7 +44,7 @@ console.log(firstInstance.name);
 console.log(secondInstance.name);
 console.log(firstInstance === secondInstance);
 
-firstInstance.name = 'UPDATED DB object';
+firstInstance.name = 'ОБНОВЛЁННЫЙ объект базы данных';
 
 console.log(firstInstance.name);
 console.log(secondInstance.name);

@@ -18,13 +18,13 @@ func getSingletonInstance() *singleton {
 		lock.Lock()
 		defer lock.Unlock()
 		if singleInstance == nil {
-			fmt.Println("Creating single instance now.")
-			singleInstance = &singleton{name: "DB Object"}
+			fmt.Println("Создаю единственный экземпляр")
+			singleInstance = &singleton{name: "Объект базы данных"}
 		} else {
-			fmt.Println("Single instance already created.")
+			fmt.Println("Экземпляр уже существует")
 		}
 	} else {
-		fmt.Println("Single instance already created.")
+		fmt.Println("Экземпляр уже существует")
 	}
 	return singleInstance
 }
@@ -40,7 +40,7 @@ func main() {
 	fmt.Println(singleton1.name)
 	fmt.Println(singleton2.name)
 
-	singleton1.name = "UPDATED DB Object"
+	singleton1.name = "ОБНОВЛЁННЫЙ объект базы данных"
 
 	fmt.Println(singleton1.name)
 	fmt.Println(singleton2.name)
