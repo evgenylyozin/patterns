@@ -15,10 +15,10 @@ class Facade {
   }
 
   public operation(): string {
-    let result = 'Facade initializes subsystems:\n';
+    let result = 'Фасад инициализирует подсистемы:\n';
     result += this.subsystem1.operation1();
     result += this.subsystem2.operation1();
-    result += 'Facade orders subsystems to perform the action:\n';
+    result += 'Фасад вызывает определённые операции на подсистемах:\n';
     result += this.subsystem1.operationN();
     result += this.subsystem2.operationZ();
     return result;
@@ -30,19 +30,19 @@ class Facade {
 // и в саму подсистему не входит
 class Subsystem1 {
   public operation1(): string {
-    return 'Subsystem1: Ready!\n';
+    return 'Подсистема 1: Готов!\n';
   }
   public operationN(): string {
-    return 'Subsystem1: Go!\n';
+    return 'Подсистема 1: Поехали!\n';
   }
 }
 
 class Subsystem2 {
   public operation1(): string {
-    return 'Subsystem2: Get ready!\n';
+    return 'Подсистема 2: Всегда готов!\n';
   }
   public operationZ(): string {
-    return 'Subsystem2: Fire!';
+    return 'Подсистема 2: Огонь!';
   }
 }
 

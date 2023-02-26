@@ -16,10 +16,10 @@ type facade struct {
 }
 
 func (f *facade) operation() string {
-	result := "Facade initializes subsystems:\n"
+	result := "Фасад инициализирует подсистемы:\n"
 	result += f.subsystem1.operation1()
 	result += f.subsystem2.operation1()
-	result += "Facade orders subsystems to perform the action:\n"
+	result += "Фасад вызывает определённые операции на подсистемах:\n"
 	result += f.subsystem1.operationN()
 	result += f.subsystem2.operationZ()
 	return result
@@ -32,20 +32,20 @@ type subsystem1 struct {
 }
 
 func (s *subsystem1) operation1() string {
-	return "Subsystem1: Ready!\n"
+	return "Подсистема 1: Готов!\n"
 }
 func (s *subsystem1) operationN() string {
-	return "Subsystem1: Go!\n"
+	return "Подсистема 1: Поехали!\n"
 }
 
 type subsystem2 struct {
 }
 
 func (s *subsystem2) operation1() string {
-	return "Subsystem2: Get ready!\n"
+	return "Подсистема 2: Всегда готов!\n"
 }
 func (s *subsystem2) operationZ() string {
-	return "Subsystem2: Fire!"
+	return "Подсистема 2: Огонь!\n"
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
