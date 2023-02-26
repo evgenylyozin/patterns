@@ -18,37 +18,37 @@ interface AbstractProductB {
 // Конкретный продукт следует интерфейсу своего типа, но может иметь и свои особенные черты
 class ConcreteProductAType1 implements AbstractProductA {
   mandatoryFeatureOfA() {
-    console.log('All A products have this feature');
+    console.log('Все продукты вида "А" имеют эту особенность');
   }
   specialFeatureOfAType1() {
-    console.log('This feature is only in As of type 1');
+    console.log('Эта особенность только у продуктов вида "А", типа 1');
   }
 }
 
 class ConcreteProductBType1 implements AbstractProductB {
   mandatoryFeatureOfB() {
-    console.log('All B products have this feature');
+    console.log('Все продукты вида "Б" имеют эту особенность');
   }
   specialFeatureOfBType1() {
-    console.log('This feature is only in Bs of type 1');
+    console.log('Эта особенность только у продуктов вида "Б", типа 1');
   }
 }
 
 class ConcreteProductAType2 implements AbstractProductA {
   mandatoryFeatureOfA() {
-    console.log('All A products have this feature');
+    console.log('Все продукты вида "А" имеют эту особенность');
   }
   specialFeatureOfAType2() {
-    console.log('This feature is only in As of type 2');
+    console.log('Эта особенность только у продуктов вида "А", типа 2');
   }
 }
 
 class ConcreteProductBType2 implements AbstractProductB {
   mandatoryFeatureOfB() {
-    console.log('All B products have this feature');
+    console.log('Все продукты вида "Б" имеют эту особенность');
   }
   specialFeatureOfBType2() {
-    console.log('This feature is only in Bs of type 2');
+    console.log('Эта особенность только у продуктов вида "Б", типа 2');
   }
 }
 

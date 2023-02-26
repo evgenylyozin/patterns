@@ -24,40 +24,40 @@ type concreteProductAType1 struct {
 }
 
 func (p *concreteProductAType1) mandatoryFeatureOfA() {
-	fmt.Println("All A products have this feature")
+	fmt.Println("Все продукты вида \"А\" имеют эту особенность")
 }
 func (p *concreteProductAType1) specialFeatureOfAType1() {
-	fmt.Println("This feature is only in As of type 1")
+	fmt.Println("Эта особенность только у продуктов вида \"А\", типа 1")
 }
 
 type concreteProductAType2 struct {
 }
 
 func (p *concreteProductAType2) mandatoryFeatureOfA() {
-	fmt.Println("All A products have this feature")
+	fmt.Println("Все продукты вида \"А\" имеют эту особенность")
 }
 func (p *concreteProductAType2) specialFeatureOfAType2() {
-	fmt.Println("This feature is only in As of type 2")
+	fmt.Println("Эта особенность только у продуктов вида \"А\", типа 2")
 }
 
 type concreteProductBType1 struct {
 }
 
 func (p *concreteProductBType1) mandatoryFeatureOfB() {
-	fmt.Println("All B products have this feature")
+	fmt.Println("Все продукты вида \"Б\" имеют эту особенность")
 }
 func (p *concreteProductBType1) specialFeatureOfBType1() {
-	fmt.Println("This feature is only in Bs of type 1")
+	fmt.Println("Эта особенность только у продуктов вида \"Б\", типа 1")
 }
 
 type concreteProductBType2 struct {
 }
 
 func (p *concreteProductBType2) mandatoryFeatureOfB() {
-	fmt.Println("All B products have this feature")
+	fmt.Println("Все продукты вида \"Б\" имеют эту особенность")
 }
 func (p *concreteProductBType2) specialFeatureOfBType2() {
-	fmt.Println("This feature is only in Bs of type 2")
+	fmt.Println("Эта особенность только у продуктов вида \"Б\", типа 2")
 }
 
 // Конкретная фабрика, следуя интерфейсу абстрактной фабрики, выпускает все необходимые
