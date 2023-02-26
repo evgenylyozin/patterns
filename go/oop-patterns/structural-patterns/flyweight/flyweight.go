@@ -16,7 +16,7 @@ type flyweight struct {
 func (f *flyweight) operation(uniqueState any) {
 	s, _ := json.Marshal(f.sharedState)
 	u, _ := json.Marshal(uniqueState)
-	fmt.Printf("Flyweight: Displaying shared %s and unique %s state.", s, u)
+	fmt.Printf("Приспособленец: Отображаю общее %s и уникальное %s состояние.", s, u)
 }
 
 // Фабрика приспособленцев создаёт и управляет ими, когда
@@ -34,17 +34,18 @@ func (f *flyweightFactory) getFlyweight(sharedState []string) flyweight {
 	key := makeKey(sharedState)
 	_, ok := f.flyweights[key]
 	if !ok {
-		fmt.Println("FlyweightFactory: Can't find a flyweight, creating new one.")
+		fmt.Println(`Фабрика приспособленцев: Не могу найти подходящего 
+приспособленца, создаю нового.`)
 		f.flyweights[key] = flyweight{sharedState: sharedState}
 	} else {
-		fmt.Println("FlyweightFactory: Reusing existing flyweight.")
+		fmt.Println("Фабрика приспособленцев: возвращаю существующего приспособленца.")
 	}
 
 	return f.flyweights[key]
 }
 
 func (f *flyweightFactory) listFlyweights() {
-	fmt.Printf("\nFlyweightFactory: I have %v flyweights:\n", len(f.flyweights))
+	fmt.Printf("\nФабрика приспособленцев: В наличии %v приспособленцев:\n", len(f.flyweights))
 	for key := range f.flyweights {
 		fmt.Println(key)
 	}
@@ -63,7 +64,7 @@ func newFlyweightFactory(initialFlyweights [][]string) *flyweightFactory {
 // объекта-приспособленца и вызов его метода с уникальным состоянием
 // всё это можно оформить в виде отдельного объекта
 func addCarToPoliceDatabase(ff flyweightFactory, plates, owner, brand, model, color string) {
-	fmt.Println("\nClient: Adding a car to database.")
+	fmt.Println("\nКлиент: Добавляю машину в БД.")
 	flyweight := ff.getFlyweight([]string{brand, model, color})
 	flyweight.operation([]string{plates, owner})
 }
@@ -74,16 +75,16 @@ func addCarToPoliceDatabase(ff flyweightFactory, plates, owner, brand, model, co
 
 func main() {
 	factory := newFlyweightFactory([][]string{
-		{"Chevrolet", "Camaro2018", "pink"},
-		{"Mercedes Benz", "C300", "black"},
-		{"Mercedes Benz", "C500", "red"},
-		{"BMW", "M5", "red"},
-		{"BMW", "X6", "white"}})
+		{"Chevrolet", "Camaro2018", "розовый"},
+		{"Mercedes Benz", "C300", "черный"},
+		{"Mercedes Benz", "C500", "красный"},
+		{"BMW", "M5", "красный"},
+		{"BMW", "X6", "белый"}})
 
 	factory.listFlyweights()
 
-	addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "M5", "red")
-	addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "X1", "red")
+	addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "M5", "красный")
+	addCarToPoliceDatabase(*factory, "CL234IR", "James Doe", "BMW", "X1", "красный")
 
 	factory.listFlyweights()
 }

@@ -11,7 +11,9 @@ class Flyweight {
   operation(uniqueState) {
     const s = JSON.stringify(this.sharedState);
     const u = JSON.stringify(uniqueState);
-    console.log(`Flyweight: Displaying shared (${s}) and unique (${u}) state.`);
+    console.log(
+      `Приспособленец: Отображаю общее (${s}) и уникальное (${u}) состояние.`
+    );
   }
 }
 
@@ -36,11 +38,14 @@ class FlyweightFactory {
 
     if (!(key in this.flyweights)) {
       console.log(
-        "FlyweightFactory: Can't find a flyweight, creating new one."
+        `Фабрика приспособленцев: Не могу найти подходящего 
+приспособленца, создаю нового.`
       );
       this.flyweights[key] = new Flyweight(sharedState);
     } else {
-      console.log('FlyweightFactory: Reusing existing flyweight.');
+      console.log(
+        'Фабрика приспособленцев: возвращаю существующего приспособленца.'
+      );
     }
 
     return this.flyweights[key];
@@ -48,7 +53,9 @@ class FlyweightFactory {
 
   listFlyweights() {
     const count = Object.keys(this.flyweights).length;
-    console.log(`\nFlyweightFactory: I have ${count} flyweights:`);
+    console.log(
+      `\nФабрика приспособленцев: В наличии ${count} приспособленцев:`
+    );
     for (const key in this.flyweights) {
       console.log(key);
     }
@@ -60,11 +67,11 @@ class FlyweightFactory {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const factory = new FlyweightFactory([
-  ['Chevrolet', 'Camaro2018', 'pink'],
-  ['Mercedes Benz', 'C300', 'black'],
-  ['Mercedes Benz', 'C500', 'red'],
-  ['BMW', 'M5', 'red'],
-  ['BMW', 'X6', 'white'],
+  ['Chevrolet', 'Camaro2018', 'розовый'],
+  ['Mercedes Benz', 'C300', 'черный'],
+  ['Mercedes Benz', 'C500', 'красный'],
+  ['BMW', 'M5', 'красный'],
+  ['BMW', 'X6', 'белый'],
 ]);
 factory.listFlyweights();
 
@@ -73,12 +80,12 @@ factory.listFlyweights();
 // объекта-приспособленца и вызов его метода с уникальным состоянием
 // всё это можно оформить в виде отдельного класса/объекта
 function addCarToPoliceDatabase(ff, plates, owner, brand, model, color) {
-  console.log('\nClient: Adding a car to database.');
+  console.log('\nКлиент: Добавляю машину в БД.');
   const flyweight = ff.getFlyweight([brand, model, color]);
   flyweight.operation([plates, owner]);
 }
 
-addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'M5', 'red');
-addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'X1', 'red');
+addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'M5', 'красный');
+addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'X1', 'красный');
 
 factory.listFlyweights();
