@@ -7,7 +7,7 @@ type blackCat struct {
 }
 
 func (c *blackCat) meow() {
-	fmt.Println("Meow, my color is", c.color)
+	fmt.Println("Мяу, мой цвет:", c.color)
 }
 
 type whiteCat struct {
@@ -15,17 +15,17 @@ type whiteCat struct {
 }
 
 func (c *whiteCat) meow() {
-	fmt.Println("Meow, my color is", c.color)
+	fmt.Println("Мяу, мой цвет:", c.color)
 }
 
 // Создание объектов в Go можно делегировать отдельной функции
 // такие функции по своей сути являются конструкторами
 func newBlackCat() *blackCat {
-	return &blackCat{color: "black"}
+	return &blackCat{color: "черный"}
 }
 
 func newWhiteCat() *whiteCat {
-	return &whiteCat{color: "white"}
+	return &whiteCat{color: "белый"}
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,5 +34,6 @@ func newWhiteCat() *whiteCat {
 func main() {
 	whiteCat := newWhiteCat()
 	blackCat := newBlackCat()
-	fmt.Println(whiteCat.color, blackCat.color)
+	whiteCat.meow()
+	blackCat.meow()
 }
