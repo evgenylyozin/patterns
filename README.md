@@ -1,34 +1,33 @@
-# OOP and FP patterns for **_JS_**, **_TS_** and **_Go_**
+# Шаблоны объектно-ориентированного и функционального программирования для **_Javascript_**, **_Typescript_** и **_Go_**
 
-A collection of relevant patterns for Javascript, Typescript and Go
+## Шаблоны **Javascript**
 
-## The **javascript** folder
+- [Шаблоны ФП](https://github.com/evgenylyozin/patterns/tree/master/javascript/fp-patterns)
+- [Шаблоны ООП](https://github.com/evgenylyozin/patterns/tree/master/javascript/oop-patterns)
 
-Contains OOP and FP patterns for JavaScript (oop-patterns.js and fp-patterns.js respectively).
-
-To run js code in vscode use:
+Пользователи vscode могут запускать примеры так:
 
 ```input
 ctrl+shift+d -> JS Launch -> f5
 ```
 
-## The **typescript** folder
+## Шаблоны **Typescript**
 
-Contains OOP and FP patterns for TypeScript (oop-patterns.ts and fp-patterns.ts respectively).
+- [Шаблоны ФП](https://github.com/evgenylyozin/patterns/tree/master/typescript/fp-patterns)
+- [Шаблоны ООП](https://github.com/evgenylyozin/patterns/tree/master/typescript/oop-patterns)
 
-To run ts code in vscode use:
+Пользователи vscode могут запускать примеры так:
 
 ```input
 ctrl+shift+d -> TS Launch -> f5
 ```
 
-## The **go** folder
+## Шаблоны **Go**
 
-Contains OOP and FP patterns for Go (oop-patterns.go and fp-patterns.go respectively).
+- [Шаблоны ФП](https://github.com/evgenylyozin/patterns/tree/master/go/fp-patterns)
+- [Шаблоны ООП](https://github.com/evgenylyozin/patterns/tree/master/go/oop-patterns)
 
-The main.go file is supposed to be the testing playground.
-
-To run go code in vscode use:
+Пользователи vscode могут запускать примеры так:
 
 ```input
 ctrl+shift+d -> Go Launch -> f5
