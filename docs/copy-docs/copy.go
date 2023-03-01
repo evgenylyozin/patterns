@@ -55,13 +55,34 @@ func returnOnlyFoldersWithPatterns(dirs []string) []string {
 	return res
 }
 
-func assemblePathsToPatterns(prefix string, res []string) []string {
+func assemblePathsToPatterns(prefix string, res []string, withParentFolders bool) []string {
+	res = append(res, returnOnlyFoldersWithPatterns(getSliceOfDirNames(prefix))...)
+	parents := []string{}
+	for i, path := range res {
+		realPath := prefix + "/" + path
+		morePatternFolders := returnOnlyFoldersWithPatterns(getSliceOfDirNames(realPath))
+		if len(morePatternFolders) > 0 {
+			if withParentFolders {
+				parents = append(parents, realPath)
+			}
+			res = assemblePathsToPatterns(realPath, res[:i], withParentFolders)
+		} else {
+			if !strings.HasPrefix(res[i], "../") {
+				res[i] = realPath
+			}
+		}
+	}
+	res = append(res, parents...)
+	return res
+}
+
+func assembleCommonPaths(prefix string, res []string) []string {
 	res = append(res, returnOnlyFoldersWithPatterns(getSliceOfDirNames(prefix))...)
 	for i, path := range res {
 		realPath := prefix + "/" + path
 		morePatternFolders := returnOnlyFoldersWithPatterns(getSliceOfDirNames(realPath))
 		if len(morePatternFolders) > 0 {
-			res = assemblePathsToPatterns(realPath, res[:i])
+			res = assembleCommonPaths(realPath, res[:i])
 		} else {
 			if !strings.HasPrefix(res[i], "../") {
 				res[i] = realPath
@@ -105,15 +126,33 @@ func copyReadmeFilesToPatternsInThePath(path string) {
 		copyReadme(fullReadmeFilePath, docPath)
 	}
 }
+
+func copyCommonReadmeFilesToThePath(path string) {
+	docsPath := "../common"
+	fullReadmeFilePath := path + "/" + "README.md"
+	pathParts := strings.Split(path, "/")
+	destinationFolderName := pathParts[len(pathParts)-1]
+	docPath := docsPath + "/" + destinationFolderName + ".md"
+	copyReadme(fullReadmeFilePath, docPath)
+}
+
 func main() {
 	// Потенциально можно будет добавлять новые папки с паттернами
 	// например react или node, и они сюда попадут
 	// важно, чтобы папки, содержащие паттерны имели в названии "patterns"
 	languages := returnOnlyLanguages(getSliceOfDirNames(rootFolder))
+	// Скопировать все общие доки
+	for _, l := range languages {
+		// [../../go/fp-patterns ../../go/oop-patterns ...]
+		commonPaths := assemblePathsToPatterns(rootFolder+l, []string{}, true)
+		for _, p := range commonPaths {
+			copyCommonReadmeFilesToThePath(p)
+		}
+	}
+	// Скопировать все доки по конкретным шаблонам
 	for _, l := range languages {
 		// [../../go/fp-patterns ../../go/oop-patterns/behavioral-patterns ...]
-		pathsToPatterns := assemblePathsToPatterns(rootFolder+l, []string{})
-
+		pathsToPatterns := assemblePathsToPatterns(rootFolder+l, []string{}, false)
 		for _, p := range pathsToPatterns {
 			copyReadmeFilesToPatternsInThePath(p)
 		}
