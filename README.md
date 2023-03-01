@@ -33,29 +33,55 @@
 - [Шаблоны ФП](https://github.com/evgenylyozin/patterns/tree/master/javascript/fp-patterns)
 - [Шаблоны ООП](https://github.com/evgenylyozin/patterns/tree/master/javascript/oop-patterns)
 
-Пользователи vscode могут запускать примеры так:
-
-```input
-ctrl+shift+d -> JS Launch -> f5
-```
-
 ## Шаблоны **Typescript**
 
 - [Шаблоны ФП](https://github.com/evgenylyozin/patterns/tree/master/typescript/fp-patterns)
 - [Шаблоны ООП](https://github.com/evgenylyozin/patterns/tree/master/typescript/oop-patterns)
-
-Пользователи vscode могут запускать примеры так:
-
-```input
-ctrl+shift+d -> TS Launch -> f5
-```
 
 ## Шаблоны **Go**
 
 - [Шаблоны ФП](https://github.com/evgenylyozin/patterns/tree/master/go/fp-patterns)
 - [Шаблоны ООП](https://github.com/evgenylyozin/patterns/tree/master/go/oop-patterns)
 
-Пользователи vscode могут запускать примеры так:
+## Пользователям VS Code
+
+Пользователи VS Code могут запускать примеры в IDE, для этого в каждой папке для конкретного языка уже есть .vscode/launch.json файл.
+
+### Для запуска примеров Javascript
+
+Перед запуском:
+
+- Установить Node.js или убедиться, что она доступна в системе: [Инструкции по установке](https://nodejs.org/ru/download/package-manager/)
+
+Открыв файл примера, выполнить:
+
+```input
+ctrl+shift+d -> JS Launch -> f5
+```
+
+### Для запуска примеров Typescript
+
+- Установить Node.js или убедиться, что она доступна в системе: [Инструкции по установке](https://nodejs.org/ru/download/package-manager/)
+- Чтобы установить нужные зависимости, выполнить из папки "typescript":
+
+```bash
+npm i
+```
+
+Открыв файл примера, выполнить:
+
+```input
+ctrl+shift+d -> TS Launch -> f5
+```
+
+### Для запуска примеров Go
+
+Перед запуском:
+
+- Установить Go: [Инструкции по установке](https://go.dev/doc/install)
+- Установить расширение для VS Code: [Расширение для Go](https://marketplace.visualstudio.com/items?itemName=golang.go)
+
+Открыв файл примера, выполнить:
 
 ```input
 ctrl+shift+d -> Go Launch -> f5
