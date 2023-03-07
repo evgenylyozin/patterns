@@ -16,7 +16,7 @@
 
 ![Блок-схема функции обратного вызова]()
 
-[Что такое блок-схема]()
+[Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
 
 ## Дополнительная информация
 
