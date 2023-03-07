@@ -12,6 +12,12 @@
 - если нужно выделить части логики функции и вызвать их по мере необходимости
 - при обработке таймаутов и т.п.
 
+## Блок-схема
+
+![Блок-схема функции обратного вызова]()
+
+[Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
+
 ## Дополнительная информация
 
 [Что такое колбэк-функция](https://developer.mozilla.org/ru/docs/Glossary/Callback_function)
