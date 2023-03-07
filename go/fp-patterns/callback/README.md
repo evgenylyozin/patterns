@@ -14,7 +14,7 @@
 
 ## Блок-схема
 
-![Блок-схема функции обратного вызова]()
+![Блок-схема функции обратного вызова](https://github.com/evgenylyozin/patterns/blob/43da61221bb97fc44f5d1d05e3f5c512832dafdc/docs/fp-patterns/flowcharts/callback.png)
 
 [Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
 
