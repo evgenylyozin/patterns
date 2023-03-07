@@ -37,7 +37,7 @@
                         <mxPoint x="494.5" y="530" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="12" value="Функция обратного&lt;br&gt;вызова" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=process;whiteSpace=wrap;rounded=1;size=0.14;arcSize=6;aspect=fixed;labelPosition=center;align=center;" vertex="1" parent="1">
+                <mxCell id="12" value="Функция обратного&lt;br&gt;вызова" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=process;whiteSpace=wrap;rounded=1;size=0.14;arcSize=6;aspect=fixed;labelPosition=center;align=center;strokeWidth=2;" vertex="1" parent="1">
                     <mxGeometry x="410" y="530" width="170" height="102" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
