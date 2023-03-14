@@ -12,7 +12,7 @@
 
 ## Блок-схема
 
-![Блок-схема немедленно выполняемого функционального выражения]()
+![Блок-схема немедленно выполняемого функционального выражения](https://github.com/evgenylyozin/patterns/blob/9c75c41d2576c65fa1408d7cb33b8e69ed52066f/docs/fp-patterns/flowcharts/immediately-invoked-function-expression.png)
 
 [Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
 
