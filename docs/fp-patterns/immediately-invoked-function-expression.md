@@ -10,6 +10,12 @@
 - для выполнения инициализации
 - для создания синглтона и т.п.
 
+## Блок-схема
+
+![Блок-схема немедленно выполняемого функционального выражения]()
+
+[Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
+
 ## Дополнительная информация
 
 [Что такое IIFE](https://developer.mozilla.org/ru/docs/Glossary/IIFE)
