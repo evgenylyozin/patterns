@@ -1,0 +1,103 @@
+<mxfile host="65bd71144e">
+    <diagram id="WH9oHksoD1uJccYumJbU" name="Страница 1">
+        <mxGraphModel dx="788" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="18" value="Запуск&lt;br&gt;(Функция Memoize)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="20" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="924.5" y="122" as="sourcePoint"/>
+                        <mxPoint x="924.5" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="Принимает&lt;br&gt;вариативное число&lt;br&gt;аргументов" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="190" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Функция высшего порядка,&lt;br&gt;содержит кеш внутри себя и&lt;br&gt;вернёт функцию, которая будет&lt;br&gt;пользоваться этим кешем при&lt;br&gt;необходимости (за счёт замыкания),&lt;br&gt;либо вернёт результат, рассчитанный&lt;br&gt;с использованием кеша" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" parent="1" vertex="1">
+                    <mxGeometry x="1010" y="22" width="50" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="924.5" y="292" as="sourcePoint"/>
+                        <mxPoint x="924.5" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" value="Возвращает функцию, которая может использовать кеш, либо производит рассчет и возвращает результат" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="360" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="Может принимать аргументы&lt;br&gt;для настройки кеша,&lt;br&gt;функцию, которая будет&amp;nbsp;&lt;br&gt;использовать кеш, и т.п., либо&lt;br&gt;вовсе не принимать аргументов" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="990" y="192" width="50" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="Запуск&lt;br&gt;(Функция Memoized)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1424" y="20" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1508.5" y="122" as="sourcePoint"/>
+                        <mxPoint x="1508.5" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="65" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="52" target="64">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Принимает&lt;br&gt;вариативное число&lt;br&gt;аргументов" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" vertex="1" parent="1">
+                    <mxGeometry x="1424" y="190" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Функция, которая может&lt;br&gt;использовать кеш&lt;br&gt;Эта функция возвращается&lt;br&gt;функцией высшего порядка&lt;br&gt;(memoize) или используется&lt;br&gt;ей для произведения&lt;br&gt;рассчетов" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="1594" y="22" width="50" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="Функция производит&amp;nbsp;&lt;br&gt;рассчет при помощи кеша" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;arcSize=12;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="1424" y="362" width="170" height="85" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="Есть ли рассчитанный результат с такими аргументами в кеше?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1424" y="518" width="170" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="68">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1518.5" y="459" as="sourcePoint"/>
+                        <mxPoint x="1664" y="603" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="70" value="Да" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="69">
+                    <mxGeometry x="-0.3426" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="71" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="68">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1374" y="637" as="sourcePoint"/>
+                        <mxPoint x="1354" y="603" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="72" value="Нет" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="71">
+                    <mxGeometry x="-0.3852" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" value="Вернуть результат из кеша" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1664" y="555" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" target="78">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1269" y="645.5" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="77" value="" style="edgeStyle=none;html=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1508.5" y="447" as="sourcePoint"/>
+                        <mxPoint x="1508.5" y="517" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="78" value="Вернуть результат" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1184" y="725.5" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="Рассчитать результат и добавить его в кеш" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="1184" y="560.5" width="170" height="85" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
