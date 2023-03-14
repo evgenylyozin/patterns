@@ -11,6 +11,6 @@
 
 ## Блок-схема
 
-![Блок-схема ленивого определения функции]()
+![Блок-схема ленивого определения функции](https://github.com/evgenylyozin/patterns/blob/419205ab3ef6131a5a7ef1594eb75b86e2023988/docs/fp-patterns/flowcharts/lazy-function-definition.png)
 
 [Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
