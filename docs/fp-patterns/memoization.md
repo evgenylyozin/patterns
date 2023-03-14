@@ -11,7 +11,7 @@
 
 ## Блок-схема
 
-![Блок-схема запоминания]()
+![Блок-схема запоминания](https://github.com/evgenylyozin/patterns/blob/0ca5a5d6a716a72584a759cbf0a00c765a9dd618/docs/fp-patterns/flowcharts/memoization.png)
 
 [Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
 
