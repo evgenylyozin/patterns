@@ -12,7 +12,7 @@
 
 ## Блок-схема
 
-![Блок-схема каррирования]()
+![Блок-схема каррирования](https://github.com/evgenylyozin/patterns/blob/61cfff8365a40ae5fc2cda2e00c68062f7c2f9af/docs/fp-patterns/flowcharts/curring.png)
 
 [Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
 
