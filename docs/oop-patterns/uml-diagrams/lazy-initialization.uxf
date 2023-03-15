@@ -1,0 +1,27 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>320</x><y>130</y><w>190</w><h>150</h></coordinates><panel_attributes>Lazy
+--
+-initData
+-data
+--
++init()
+--
+Задачи:
+--  принять первичные
+настройки и вернуть
+экземпляр</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>650</x><y>130</y><w>170</w><h>120</h></coordinates><panel_attributes>При создании экземпляра
+класса могут передаваться
+первичные данные,
+которые потом будут
+использоваться 
+экземпляром для своей 
+инициализации
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>140</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>330</y><w>190</w><h>140</h></coordinates><panel_attributes>Клиент
+--
+-- создаёт экземпляр класса
+-- в нужный момент вызывает
+метод для инициализации 
+на этом экземпляре
+-- по окончании инициализации
+клиент использует готовый
+объект</panel_attributes><additional_attributes></additional_attributes></element></diagram>
