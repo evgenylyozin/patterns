@@ -23,7 +23,7 @@
 
 ## UML диаграмма
 
-![UML диаграмма отложенной инициализации]()
+![UML диаграмма отложенной инициализации](https://github.com/evgenylyozin/patterns/blob/821755e7a1cae3cfa441b908782ff41d7d04fbe2/docs/oop-patterns/uml-diagrams/lazy-initialization.png)
 
 [Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)
 
