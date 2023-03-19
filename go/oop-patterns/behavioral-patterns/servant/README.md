@@ -21,7 +21,7 @@
 
 ## UML диаграмма
 
-![UML диаграмма слуги]()
+![UML диаграмма слуги](https://github.com/evgenylyozin/patterns/blob/f4babb08a941f438d6544d316f2f4d51c1a65fab/docs/oop-patterns/uml-diagrams/servant.png)
 
 [Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)
 
