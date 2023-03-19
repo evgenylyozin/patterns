@@ -21,7 +21,7 @@
 
 ## UML диаграмма
 
-![UML диаграмма нулевого объекта]()
+![UML диаграмма нулевого объекта](https://github.com/evgenylyozin/patterns/blob/02fa333868fe851f588a7da4800573781d24af3f/docs/oop-patterns/uml-diagrams/null-object.png)
 
 [Что такое UML диаграммы](https://github.com/evgenylyozin/patterns/blob/6bd4dee6b7186d8703f4f3d8f852e72d185ae545/docs/diagram.md)
 
