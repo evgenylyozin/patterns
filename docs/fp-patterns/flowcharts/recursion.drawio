@@ -1,0 +1,83 @@
+<mxfile host="65bd71144e">
+    <diagram id="WH9oHksoD1uJccYumJbU" name="Страница 1">
+        <mxGraphModel dx="1671" dy="495" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="Запуск" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="20" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Данные" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="190" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="400" y="220" as="sourcePoint"/>
+                        <mxPoint x="450" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="Останов" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="770" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="494.5" y="291" as="sourcePoint"/>
+                        <mxPoint x="494.5" y="359" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="10" target="17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Функция выполняет свои&lt;br&gt;операции с переданными&lt;br&gt;данными" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="360" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1" source="17">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="495" y="670" as="sourcePoint"/>
+                        <mxPoint x="495" y="770" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="Да" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;" vertex="1" connectable="0" parent="15">
+                    <mxGeometry x="-0.4734" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="Базовый случай - условие,&lt;br&gt;при котором рекурсивная&lt;br&gt;функция должна вернуть&lt;br&gt;примитивный результат расчета,&lt;br&gt;который можно определить уже&lt;br&gt;в момент создания кода.&lt;br&gt;Каждая рекурсивная функция&lt;br&gt;должна иметь хотя бы один&lt;br&gt;базовый случай, чтобы&amp;nbsp;&lt;br&gt;предотвратить бесконечный цикл&lt;br&gt;вызовов." style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="566" width="50" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Базовый случай" style="rhombus;whiteSpace=wrap;html=1;rounded=1;arcSize=14;strokeWidth=2;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="531" width="170" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="17" target="25">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="750" as="sourcePoint"/>
+                        <mxPoint x="130" y="320" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="25" y="616"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="Нет" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;" vertex="1" connectable="0" parent="20">
+                    <mxGeometry x="-0.1121" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="Если условие, при котором&lt;br&gt;можно возвращать&lt;br&gt;примитивный результат&amp;nbsp;&lt;br&gt;расчета не соблюдено -&amp;nbsp;&lt;br&gt;функция продолжает&amp;nbsp;&lt;br&gt;выполнение операций и в&lt;br&gt;итоге вызывает себя саму&lt;br&gt;(или другую функцию в&amp;nbsp;&lt;br&gt;случае сложной рекурсии)&lt;br&gt;с другими аргументами" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="230" width="50" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Функция продолжает выполнять свои&lt;br&gt;операции, рассчитывает новые аргументы" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="-60" y="230" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="25" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="80" y="270" as="sourcePoint"/>
+                        <mxPoint x="130" y="220" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="25" y="71"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

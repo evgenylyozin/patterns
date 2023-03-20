@@ -10,3 +10,4 @@
 - [Немедленно выполняемое функциональное выражение](./immediately-invoked-function-expression)
 - [Ленивое определение функции](./lazy-function-definition) (не реализовано на Go)
 - [Запоминание](./memoization)
+- [Рекурсия](./recursion)
