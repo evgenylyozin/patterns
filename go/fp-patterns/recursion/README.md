@@ -11,7 +11,7 @@
 
 ## Блок-схема
 
-![Блок-схема рекурсии]()
+![Блок-схема рекурсии](https://github.com/evgenylyozin/patterns/blob/dfef9abb931995b042641fdd340ff010a93a3231/docs/fp-patterns/flowcharts/recursion.png)
 
 [Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
 
