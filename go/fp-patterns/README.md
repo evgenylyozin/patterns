@@ -11,3 +11,4 @@
 - [Ленивое определение функции](./lazy-function-definition) (не реализовано на Go)
 - [Запоминание](./memoization)
 - [Рекурсия](./recursion)
+- [Анонимная функция](./anonymous-function)
