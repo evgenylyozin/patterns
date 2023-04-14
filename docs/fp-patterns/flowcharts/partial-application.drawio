@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="WH9oHksoD1uJccYumJbU" name="Страница 1">
+        <mxGraphModel dx="709" dy="1485" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="Запуск&lt;br&gt;(Функция PartiallyApply)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="20" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Функция,&amp;nbsp;&lt;br&gt;аргументы которой&lt;br&gt;нужно&lt;br&gt;зафиксировать и&amp;nbsp;&lt;br&gt;список&lt;br&gt;аргументов" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="190" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="400" y="220" as="sourcePoint"/>
+                        <mxPoint x="450" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="&lt;span style=&quot;text-align: left;&quot;&gt;Возвращает функцию, готовую&lt;/span&gt;&lt;br style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;принять новые аргументы&lt;/span&gt;&lt;br&gt;(возвращает &lt;br&gt;PartiallyApplied)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="360" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="494.5" y="291" as="sourcePoint"/>
+                        <mxPoint x="494.5" y="359" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="Функция, принимающая&lt;br&gt;в качестве аргумента&lt;br&gt;функцию, для которой&lt;br&gt;нужно зафиксировать&lt;br&gt;часть аргументов и&amp;nbsp;&lt;br&gt;возвращающая&amp;nbsp;&lt;br&gt;новую функцию, готовую&lt;br&gt;принять новые аргументы, но&lt;br&gt;при своём вызове вызывающую&lt;br&gt;оригинальную функцию с&amp;nbsp;&lt;br&gt;зафисированными аргументами&lt;br&gt;+ вновь переданными" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="22" width="50" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Запуск&lt;br&gt;(Функция Partially Applied)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="20" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="924.5" y="122" as="sourcePoint"/>
+                        <mxPoint x="924.5" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="Принимает&lt;br&gt;вариативное число&lt;br&gt;аргументов" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="190" width="170" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Функция имеющая доступ&lt;br&gt;к ранее переданным &lt;br&gt;(в PartiallyApply) аргументам&lt;br&gt;и оригинальной функции &lt;br&gt;за счёт замыкания. Принимает&lt;br&gt;новые аргументы, но&lt;br&gt;при своём вызове вызывает&lt;br&gt;оригинальную функцию&lt;br&gt;&amp;nbsp;со всем списком аргументов &lt;br&gt;(ранее&amp;nbsp;&lt;br&gt;переданными и новыми)&lt;br&gt;&amp;nbsp;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" parent="1" vertex="1">
+                    <mxGeometry x="1010" y="22" width="50" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="924.5" y="292" as="sourcePoint"/>
+                        <mxPoint x="924.5" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="Вызывает оригинальную&amp;nbsp;&lt;br&gt;функцию со всем списком аргументов" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="360" width="170" height="102" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
