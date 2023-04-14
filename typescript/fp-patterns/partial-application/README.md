@@ -10,7 +10,7 @@
 
 ## Блок-схема
 
-![Блок-схема частичного применения]()
+![Блок-схема частичного применения](https://github.com/evgenylyozin/patterns/blob/d2c11286ca58134fda45e215574fb229b5c64218/docs/fp-patterns/flowcharts/partial-application.png)
 
 [Что такое блок-схема](https://github.com/evgenylyozin/patterns/blob/48f6815cb43aa7cf366156fe23d47cdbaccbe3eb/docs/flowchart.md)
 
