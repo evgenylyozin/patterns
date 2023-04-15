@@ -13,3 +13,4 @@
 - [Рекурсия](./recursion)
 - [Анонимная функция](./anonymous-function)
 - [Частичное применение](./partial-application)
+- [Композиция](./composition)
