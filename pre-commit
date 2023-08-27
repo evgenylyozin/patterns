@@ -11,6 +11,3 @@ function test_return () {
 
 ./run.sh copy-docs
 test_return $? "error copying docs, possibly some needed docs missing"
-
-./run.sh commit-docs
-test_return $? "error commiting docs"
