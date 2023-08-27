@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function test_return () {
+  ret=$1
+  if [ $ret -ne 0 ];
+  then
+  echo $2
+  exit 1
+  fi  
+}
+
+./run.sh copy-docs
+test_return $? "error copying docs, possibly some needed docs missing"
+
+./run.sh commit-docs
+test_return $? "error commiting docs"
