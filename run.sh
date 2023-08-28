@@ -8,7 +8,7 @@ case $1 in
     cd ./docs/copy-docs/ && ./copy
   ;;
   "commit-docs")
-    git add -A && git commit -m 'Docs update'
+    git add -A && git commit -m 'Docs update' && git push
   ;;
   *)
     echo "Unknown command $1"
