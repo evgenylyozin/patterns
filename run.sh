@@ -2,7 +2,7 @@
 
 case $1 in
   "init-project")
-    chmod +x pre-commit && cp pre-commit .git/hooks/ && cd typescript && npm i
+    chmod +x pre-commit && chmod +x pre-push && cp -t .git/hooks/ pre-commit pre-push && cd typescript && npm i
   ;;
   "copy-docs")
     cd ./docs/copy-docs/ && ./copy
