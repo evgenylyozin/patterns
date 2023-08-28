@@ -11,3 +11,6 @@ function test_return () {
 
 ./run.sh copy-docs
 test_return $? "error copying docs, possibly some needed docs missing"
+
+git add -A
+test_return $? "error adding generated docs to the commit"
