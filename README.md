@@ -89,3 +89,5 @@ ctrl+shift+d -> TS Launch -> f5
 ```input
 ctrl+shift+d -> Go Launch -> f5
 ```
+
+## Про run.sh
